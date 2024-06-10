@@ -1,0 +1,47 @@
+nav.navbar {
+  font-family: "Outfit", sans-serif;
+
+  img {
+    object-fit: contain;
+    width: auto;
+    height: 35px;
+
+    @media (min-width: 768px) {
+      height: 48px;
+    }
+  }
+
+  button {
+    border: none;
+    padding: 4px;
+    color: #0d6c8d;
+
+    i {
+      font-size: 1.5rem;
+    }
+    i.hide {
+      display: none;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: none !important;
+    }
+  }
+
+  .navbar-nav {
+    gap: 1rem;
+
+    a.nav-link {
+      font-weight: 500;
+      color: #0d6c8d;
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+
+      &:hover {
+        color: #0f7b9f;
+        text-decoration: underline;
+      }
+    }
+  }
+}
