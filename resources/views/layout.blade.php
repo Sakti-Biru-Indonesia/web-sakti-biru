@@ -17,11 +17,20 @@
   {{-- Custom CSS --}}
   <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 
+  {{-- Favicon --}}
+  <link rel="shortcut icon" href="{{asset('images/SBI-logo.png')}}" type="image/x-icon">
+
   {{-- Font --}}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+    rel="stylesheet">
+
+  {{-- Font Awesome --}}
+  <script src="https://kit.fontawesome.com/36bc692e11.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -31,6 +40,8 @@
   <div class="content-wrapper container">
     @yield('content')
   </div>
+
+  @include('components.footer')
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
