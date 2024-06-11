@@ -73,4 +73,58 @@
   </div>
 </section>
 
+{{-- Blog and News --}}
+<section class="blog-news">
+  <div class="blog-news-wrapper row justify-content-between">
+    <div class="blog-news-item-wrapper p-0 col-12 col-lg-6 col-xl-5 d-flex flex-column">
+      <div class="blog-news-item d-flex gap-2 align-items-center">
+        <img class="rounded" src="{{ asset('images/sea.jpg') }}" alt="blog-news">
+        <div class="text-wrapper d-flex flex-column gap-1">
+          <a href="#" class="title font-outfit">
+            Boeing’s first astronaut flight called off at the last minute in latest setback
+          </a>
+          <span class="date-author font-open-sans">
+            May 25th, 2024 - Justin Knoll
+          </span>
+        </div>
+      </div>
+      <div class="blog-news-item d-flex gap-2 align-items-center">
+        <img class="rounded" src="{{ asset('images/sea.jpg') }}" alt="blog-news">
+        <div class="text-wrapper d-flex flex-column gap-1">
+          <a href="#" class="title font-outfit">
+            Boeing’s first astronaut flight called off at the last minute in latest setback
+          </a>
+          <span class="date-author font-open-sans">
+            May 25th, 2024 - Justin Knoll
+          </span>
+        </div>
+      </div>
+      <div class="blog-news-item d-flex gap-2 align-items-center">
+        <img class="rounded" src="{{ asset('images/sea.jpg') }}" alt="blog-news">
+        <div class="text-wrapper d-flex flex-column gap-1">
+          <a href="#" class="title font-outfit">
+            Boeing’s first astronaut flight called off at the last minute in latest setback
+          </a>
+          <span class="date-author font-open-sans">
+            May 25th, 2024 - Justin Knoll
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="text-content-wrapper font-outfit p-0 col-12 col-lg-6 col-xl-4 d-flex flex-column gap-3 align-items-end justify-content-center">
+      <h2 class="font-medium text-end">
+        Our Expert Writers, Brings You The Leading Analysis
+      </h2>
+      <p class="text-end">
+        Lorem ipsum dolor sit amet consectetur. Tincidunt eleifend dignissim molestie fringilla lobortis
+      </p>
+      <button class="btn btn-primary rounded-pill py-3">
+        Read Articles
+      </button>
+    </div>
+  </div>
+</section>
+
 @endsection
