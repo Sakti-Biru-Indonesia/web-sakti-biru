@@ -174,4 +174,126 @@ footer .container .copyright .other-list p {
   text-align: start;
 }
 
+section.display-hero {
+  font-family: "Outfit", sans-serif;
+  display: flex;
+  padding-block: 5rem;
+  justify-content: space-between;
+}
+@media (min-width: 1024px) {
+  section.display-hero {
+    padding-block: 8rem;
+  }
+}
+@media (min-width: 1400px) {
+  section.display-hero {
+    padding-block: 14rem;
+  }
+}
+section.display-hero .content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: start;
+  max-width: 100vw;
+}
+@media (min-width: 1024px) {
+  section.display-hero .content {
+    gap: 24px;
+  }
+}
+section.display-hero .content h1 {
+  font-size: 41.47px;
+  color: #0d6c8d;
+  font-weight: 400;
+  max-width: 544px;
+}
+@media (min-width: 1024px) {
+  section.display-hero .content h1 {
+    font-size: 72px;
+  }
+}
+section.display-hero .content h1 span {
+  font-weight: 700;
+}
+section.display-hero .content p {
+  color: #80838d;
+  font-size: 1rem;
+  max-width: 544px;
+}
+@media (min-width: 1024px) {
+  section.display-hero .content p {
+    font-size: 24px;
+  }
+}
+section.display-hero .content button {
+  background-color: #dde6ee;
+  color: #0d6c8d;
+  border: none;
+  font-size: 1rem;
+}
+@media (min-width: 1024px) {
+  section.display-hero .content button {
+    font-size: 20px;
+  }
+}
+section.display-hero .content button:hover {
+  background-color: #0d6c8d;
+  color: white;
+}
+section.display-hero .graphics {
+  position: relative;
+  width: 624px;
+  display: none;
+}
+@media (min-width: 1024px) {
+  section.display-hero .graphics {
+    display: block;
+  }
+}
+section.display-hero .graphics img {
+  position: absolute;
+}
+section.display-hero .graphics .sea {
+  width: 495px;
+  height: 277px;
+  object-fit: cover;
+  border-radius: 60px;
+  bottom: 0;
+  right: 4rem;
+}
+@media (max-width: 1024px) {
+  section.display-hero .graphics .sea {
+    width: 400px;
+    height: 210px;
+    right: 2rem;
+  }
+}
+section.display-hero .graphics .fishery {
+  width: 624px;
+  bottom: 0;
+  left: -3rem;
+}
+@media (max-width: 1024px) {
+  section.display-hero .graphics .fishery {
+    width: 524px;
+  }
+}
+section.display-hero .graphics .bg-wave {
+  width: auto;
+  height: 82px;
+  right: 1rem;
+  top: 48%;
+}
+@media (min-width: 1400px) {
+  section.display-hero .graphics .bg-wave {
+    right: 3rem;
+    top: 15%;
+  }
+}
+section.display-hero .graphics .round-waves {
+  bottom: -3rem;
+  left: 1rem;
+}
+
 /*# sourceMappingURL=custom.css.map */
