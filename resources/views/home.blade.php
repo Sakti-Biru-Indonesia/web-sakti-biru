@@ -143,12 +143,20 @@
     </div>
 
     <div class="product-preview col-12 col-xl-7">
-      <img src="{{ asset('images/sea.jpg') }}" alt="sea">
-      <img src="{{ asset('images/sea.jpg') }}" alt="sea">
-      <img src="{{ asset('images/sea.jpg') }}" alt="sea">
-      <img src="{{ asset('images/sea.jpg') }}" alt="sea">
+      <img src="{{ asset('images/img-1.png') }}" alt="sea">
+      <img src="{{ asset('images/img-2.png') }}" alt="sea">
+      <img src="{{ asset('images/img-3.png') }}" alt="sea">
+      <img src="{{ asset('images/img-4.png') }}" alt="sea">
     </div>
   </div>
 </section>
+
+{{-- Testimonial --}}
+
+{{-- Email --}}
+<section class="email">
+
+</section>
+
 
 @endsection
