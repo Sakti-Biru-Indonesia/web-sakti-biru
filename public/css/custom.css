@@ -607,4 +607,10 @@ section.contact .img-wrapper img {
   font-weight: 500;
 }
 
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1120px;
+  }
+}
+
 /*# sourceMappingURL=custom.css.map */
