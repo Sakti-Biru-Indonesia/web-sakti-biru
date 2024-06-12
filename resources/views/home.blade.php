@@ -127,4 +127,28 @@
   </div>
 </section>
 
+{{-- Product --}}
+<section class="product">
+  <div class="content-wrapper row justify-content-between justify-content-lg-center justify-content-xl-between">
+    <div class="text-content col-12 col-xl-5 d-flex flex-column gap-3 align-items-start">
+      <h2 class="font-medium font-outfit font-medium m-0">
+        Our World Leading Aquaculture Products
+      </h2>
+      <p class="font-outfit m-0">
+        Lorem ipsum dolor sit amet consectetur. Tincidunt eleifend dignissim molestie fringilla lobortis
+      </p>
+      <button class="btn btn-primary rounded-pill py-3 font-outfit font-medium">
+        Explore
+      </button>
+    </div>
+
+    <div class="product-preview col-12 col-xl-7">
+      <img src="{{ asset('images/sea.jpg') }}" alt="sea">
+      <img src="{{ asset('images/sea.jpg') }}" alt="sea">
+      <img src="{{ asset('images/sea.jpg') }}" alt="sea">
+      <img src="{{ asset('images/sea.jpg') }}" alt="sea">
+    </div>
+  </div>
+</section>
+
 @endsection
