@@ -1,0 +1,120 @@
+section.display-hero {
+  font-family: "Outfit", sans-serif;
+  display: flex;
+  padding-block: 5rem;
+  justify-content: space-between;
+
+  @media (min-width: 1024px) {
+    padding-block: 8rem;
+  }
+
+  @media (min-width: 1400px) {
+    padding-top: 14rem;
+    padding-bottom: 5rem;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    @media (min-width: 1024px) {
+      gap: 24px;
+    }
+    align-items: start;
+    max-width: 100vw;
+
+    h1 {
+      font-size: 41.47px;
+      @media (min-width: 1024px) {
+        font-size: 72px;
+      }
+      color: #0d6c8d;
+      font-weight: 400;
+      max-width: 544px;
+
+      span {
+        font-weight: 700;
+      }
+    }
+
+    p {
+      color: #80838d;
+      font-size: 1rem;
+      @media (min-width: 1024px) {
+        font-size: 24px;
+      }
+      max-width: 544px;
+    }
+
+    button {
+      background-color: #dde6ee;
+      color: #0d6c8d;
+      border: none;
+      font-size: 1rem;
+      @media (min-width: 1024px) {
+        font-size: 20px;
+      }
+
+      &:hover {
+        background-color: #0d6c8d;
+        color: white;
+      }
+    }
+  }
+
+  .graphics {
+    position: relative;
+    width: 624px;
+    display: none;
+
+    @media (min-width: 1024px) {
+      display: block;
+    }
+
+    img {
+      position: absolute;
+    }
+
+    .sea {
+      width: 495px;
+      height: 277px;
+      object-fit: cover;
+      border-radius: 60px;
+      bottom: 0;
+      right: 4rem;
+
+      @media (max-width: 1024px) {
+        width: 400px;
+        height: 210px;
+        right: 2rem;
+      }
+    }
+
+    .fishery {
+      width: 624px;
+      bottom: 0;
+      left: -3rem;
+
+      @media (max-width: 1024px) {
+        width: 524px;
+      }
+    }
+
+    .bg-wave {
+      width: auto;
+      height: 82px;
+      // left: 21rem;
+      right: 1rem;
+      top: 48%;
+      @media (min-width: 1400px) {
+        right: 3rem;
+        top: 15%;
+      }
+    }
+
+    .round-waves {
+      bottom: -3rem;
+      left: 1rem;
+    }
+  }
+}
