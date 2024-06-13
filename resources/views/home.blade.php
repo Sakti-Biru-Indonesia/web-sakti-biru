@@ -152,7 +152,41 @@
 </section>
 
 {{-- Testimonial --}}
+<section class="testimonial mx-auto d-flex flex-column">
+  <div class="testimonial-item d-flex justify-content-between align-items-center">
+    <div class="text-quote d-flex">
+      <i class="bi bi-quote"></i>
+      <div class="text-content d-flex flex-column">
+        <h2 class="font-outfit">
+          Lorem ipsum dolor sit amet consectetur. Tincidunt eleifend..
+        </h2>
+        <p class="font-open-sans">
+          <span>Jane Doe,</span> VP of Sales for Green Initiative Indonesia
+        </p>
+      </div>
+    </div>
+    <div class="img-wrapper">
+      <img src="{{ asset('images/testimonial-1.png') }}" alt="testimonial">
+    </div>
+  </div>
 
+  <div class="testimonial-item reverse d-flex justify-content-between align-items-center">
+    <div class="text-quote d-flex">
+      <i class="bi bi-quote"></i>
+      <div class="text-content d-flex flex-column">
+        <h2 class="font-outfit">
+          Lorem ipsum dolor sit amet consectetur. Tincidunt eleifend..
+        </h2>
+        <p class="font-open-sans">
+          <span>Jane Doe,</span> VP of Sales for Green Initiative Indonesia
+        </p>
+      </div>
+    </div>
+    <div class="img-wrapper">
+      <img src="{{ asset('images/testimonial-1.png') }}" alt="testimonial">
+    </div>
+  </div>
+</section>
 
 {{-- Contact --}}
 <section class="contact row align-items-center">
