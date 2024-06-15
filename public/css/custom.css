@@ -823,6 +823,75 @@ section.featured-news .blog-news .secondary-headline .editor-pick .editor-pick-i
   text-decoration: underline;
 }
 
+section.explore-news * {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+@media (max-width: 992px) {
+  section.explore-news {
+    max-width: 550px;
+    margin-inline: auto;
+  }
+}
+section.explore-news .author-list {
+  max-width: 274px;
+  row-gap: 24px;
+}
+@media (max-width: 992px) {
+  section.explore-news .author-list {
+    display: none !important;
+  }
+}
+section.explore-news .author-list .author-list-header-title {
+  color: #80838d;
+  font-size: 24px;
+}
+section.explore-news .author-list .author-list-item {
+  column-gap: 12px;
+}
+section.explore-news .author-list .author-list-item:hover .author-list-item-text .author-list-item-name {
+  text-decoration: underline;
+}
+section.explore-news .author-list .author-list-item .author-list-item-text .author-list-item-name {
+  color: #0d6c8d;
+}
+section.explore-news .author-list .author-list-item .author-list-item-text .author-list-item-role {
+  color: #80838d;
+  font-size: 12px;
+}
+section.explore-news .author-list .author-list-item img {
+  width: 48px;
+  height: 48px;
+}
+section.explore-news .author-list .author-list-wrapper {
+  row-gap: 1rem;
+}
+section.explore-news .explore-news-list {
+  row-gap: 48px;
+}
+section.explore-news .explore-news-list form.search-input-form input.search-input {
+  padding-block: 12px;
+  padding-inline: 24px;
+  font-family: "Outfit", sans-serif;
+  color: #0d6c8d;
+  font-size: 1rem;
+  border: 1px solid #80b0c3;
+}
+section.explore-news .explore-news-list form.search-input-form input.search-input::placeholder {
+  color: #80b0c3;
+}
+section.explore-news .explore-news-list form.search-input-form button.search-btn {
+  font-size: 20px;
+  color: #80b0c3;
+  right: 20.5px;
+  top: 17%;
+  transition: all 250ms ease-in-out;
+}
+section.explore-news .explore-news-list form.search-input-form button.search-btn:hover {
+  color: #0d6c8d;
+}
+
 .font-open-sans {
   font-family: "Open Sans", sans-serif;
 }
