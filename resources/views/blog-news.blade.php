@@ -106,7 +106,7 @@ Blog and News
   <div class="row">
 
     {{-- Explore News List --}}
-    <div class="explore-news-list col d-flex flex-column">
+    <div class="explore-news-list col">
 
       {{-- Search Input Form --}}
       <form action="#" method="get" class="search-input-form">
@@ -120,10 +120,480 @@ Blog and News
       </form>
 
       {{-- Explore News List Group --}}
-      <div class="explore-news-list-group">
-        <div class="explore-news-group-item">
+      <div class="explore-news-group-list d-flex flex-column">
 
+        {{-- Water Management --}}
+        <div class="explore-news-list-group">
+          <div class="explore-news-group-item">
+
+            {{-- Explore News Group Header --}}
+            <div class="explore-news-group-header d-flex flex-column">
+              <h3 class="explore-news-group-header-title font-outfit font-medium">
+                Water Management
+              </h3>
+              <p class="explore-news-group-header-description font-open-sans">
+                Latest news on aquaculture genetics and discoveries
+              </p>
+            </div>
+
+            {{-- Explore News Items --}}
+            <div class="explore-news-items row">
+
+              {{-- First Item --}}
+              <div class="col-12 col-lg-5">
+                <a href="#" class="explore-news-item first-item d-flex flex-column">
+                  <img class="explore-news-item-image rounded " src="{{ asset('images/blog-thumbnail-template.png') }}"
+                    alt="explore-news">
+                  <div class="explore-news-text d-flex flex-column">
+                    <p class="explore-news-item-title">
+                      SCI’s strategic recommendations for Indonesian shrimp industry challenges
+                    </p>
+                    <span class="explore-news-item-date-author">
+                      May 25th, 2024 - Robert Baratheon
+                    </span>
+                  </div>
+                </a>
+              </div>
+
+              {{-- Second until Fourth Item --}}
+              <div class="col-12 col-lg-7 beside-first-item d-flex flex-column">
+
+                <a href="#" class="explore-news-item d-flex align-items-center">
+                  <img class="explore-news-item-image rounded " src="{{ asset('images/blog-thumbnail-template.png') }}"
+                    alt="explore-news">
+                  <div class="explore-news-item">
+                    <p class="explore-news-item-title">
+                      Boeing’s first astronaut flight called off at the last minute in latest setback
+                    </p>
+                    <span class="explore-news-item-date-author">
+                      May 25th, 2024 - Robert Baratheon
+                    </span>
+                  </div>
+                </a>
+
+                <a href="#" class="explore-news-item d-flex align-items-center">
+                  <img class="explore-news-item-image rounded " src="{{ asset('images/blog-thumbnail-template.png') }}"
+                    alt="explore-news">
+                  <div class="explore-news-item">
+                    <p class="explore-news-item-title">
+                      Boeing’s first astronaut flight called off at the last minute in latest setback
+                    </p>
+                    <span class="explore-news-item-date-author">
+                      May 25th, 2024 - Robert Baratheon
+                    </span>
+                  </div>
+                </a>
+
+                <a href="#" class="explore-news-item d-flex align-items-center">
+                  <img class="explore-news-item-image rounded " src="{{ asset('images/blog-thumbnail-template.png') }}"
+                    alt="explore-news">
+                  <div class="explore-news-item">
+                    <p class="explore-news-item-title">
+                      Boeing’s first astronaut flight called off at the last minute in latest setback
+                    </p>
+                    <span class="explore-news-item-date-author">
+                      May 25th, 2024 - Robert Baratheon
+                    </span>
+                  </div>
+                </a>
+              </div>
+
+              {{-- Rest Items --}}
+              <div class="rest-items col-12 d-flex flex-column">
+
+                <a href="#" class="explore-news-item d-flex align-items-center">
+                  <img class="explore-news-item-image rounded " src="{{ asset('images/blog-thumbnail-template.png') }}"
+                    alt="explore-news">
+                  <div class="explore-news-item">
+                    <p class="explore-news-item-title">
+                      Boeing’s first astronaut flight called off at the last minute in latest setback
+                    </p>
+                    <span class="explore-news-item-date-author">
+                      May 25th, 2024 - Robert Baratheon
+                    </span>
+                  </div>
+                </a>
+
+                <a href="#" class="explore-news-item d-flex align-items-center">
+                  <img class="explore-news-item-image rounded " src="{{ asset('images/blog-thumbnail-template.png') }}"
+                    alt="explore-news">
+                  <div class="explore-news-item">
+                    <p class="explore-news-item-title">
+                      Boeing’s first astronaut flight called off at the last minute in latest setback
+                    </p>
+                    <span class="explore-news-item-date-author">
+                      May 25th, 2024 - Robert Baratheon
+                    </span>
+                  </div>
+                </a>
+
+              </div>
+            </div>
+
+            {{-- Explore News Group Footer --}}
+            <div class="explore-news-group-footer">
+              <a href="#"
+                class="explore-news-group-footer-link font-outfit font-medium text-center d-flex justify-content-center align-items-center">
+                View All <i class="fas fa-chevron-down"></i>
+              </a>
+            </div>
+          </div>
         </div>
+
+        {{-- Health Management --}}
+        <div class="explore-news-list-group">
+          <div class="explore-news-group-item">
+
+            {{-- Explore News Group Header --}}
+            <div class="explore-news-group-header d-flex flex-column">
+              <h3 class="explore-news-group-header-title font-outfit font-medium">
+                Health Management
+              </h3>
+              <p class="explore-news-group-header-description font-open-sans">
+                Latest news on aquaculture genetics and discoveries
+              </p>
+            </div>
+
+            {{-- Explore News Items --}}
+            <div class="explore-news-items row">
+
+              {{-- First Item --}}
+              <div class="col-12 col-lg-5">
+                <a href="#" class="explore-news-item first-item d-flex flex-column">
+                  <img class="explore-news-item-image rounded " src="{{ asset('images/blog-thumbnail-template.png') }}"
+                    alt="explore-news">
+                  <div class="explore-news-text d-flex flex-column">
+                    <p class="explore-news-item-title">
+                      SCI’s strategic recommendations for Indonesian shrimp industry challenges
+                    </p>
+                    <span class="explore-news-item-date-author">
+                      May 25th, 2024 - Robert Baratheon
+                    </span>
+                  </div>
+                </a>
+              </div>
+
+              {{-- Second until Fourth Item --}}
+              <div class="col-12 col-lg-7 beside-first-item d-flex flex-column">
+
+                <a href="#" class="explore-news-item d-flex align-items-center">
+                  <img class="explore-news-item-image rounded " src="{{ asset('images/blog-thumbnail-template.png') }}"
+                    alt="explore-news">
+                  <div class="explore-news-item">
+                    <p class="explore-news-item-title">
+                      Boeing’s first astronaut flight called off at the last minute in latest setback
+                    </p>
+                    <span class="explore-news-item-date-author">
+                      May 25th, 2024 - Robert Baratheon
+                    </span>
+                  </div>
+                </a>
+
+                <a href="#" class="explore-news-item d-flex align-items-center">
+                  <img class="explore-news-item-image rounded " src="{{ asset('images/blog-thumbnail-template.png') }}"
+                    alt="explore-news">
+                  <div class="explore-news-item">
+                    <p class="explore-news-item-title">
+                      Boeing’s first astronaut flight called off at the last minute in latest setback
+                    </p>
+                    <span class="explore-news-item-date-author">
+                      May 25th, 2024 - Robert Baratheon
+                    </span>
+                  </div>
+                </a>
+
+                <a href="#" class="explore-news-item d-flex align-items-center">
+                  <img class="explore-news-item-image rounded " src="{{ asset('images/blog-thumbnail-template.png') }}"
+                    alt="explore-news">
+                  <div class="explore-news-item">
+                    <p class="explore-news-item-title">
+                      Boeing’s first astronaut flight called off at the last minute in latest setback
+                    </p>
+                    <span class="explore-news-item-date-author">
+                      May 25th, 2024 - Robert Baratheon
+                    </span>
+                  </div>
+                </a>
+              </div>
+
+              {{-- Rest Items --}}
+              <div class="rest-items col-12 d-flex flex-column">
+
+                <a href="#" class="explore-news-item d-flex align-items-center">
+                  <img class="explore-news-item-image rounded " src="{{ asset('images/blog-thumbnail-template.png') }}"
+                    alt="explore-news">
+                  <div class="explore-news-item">
+                    <p class="explore-news-item-title">
+                      Boeing’s first astronaut flight called off at the last minute in latest setback
+                    </p>
+                    <span class="explore-news-item-date-author">
+                      May 25th, 2024 - Robert Baratheon
+                    </span>
+                  </div>
+                </a>
+
+                <a href="#" class="explore-news-item d-flex align-items-center">
+                  <img class="explore-news-item-image rounded " src="{{ asset('images/blog-thumbnail-template.png') }}"
+                    alt="explore-news">
+                  <div class="explore-news-item">
+                    <p class="explore-news-item-title">
+                      Boeing’s first astronaut flight called off at the last minute in latest setback
+                    </p>
+                    <span class="explore-news-item-date-author">
+                      May 25th, 2024 - Robert Baratheon
+                    </span>
+                  </div>
+                </a>
+
+              </div>
+            </div>
+
+            {{-- Explore News Group Footer --}}
+            <div class="explore-news-group-footer">
+              <a href="#"
+                class="explore-news-group-footer-link font-outfit font-medium text-center d-flex justify-content-center align-items-center">
+                View All <i class="fas fa-chevron-down"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {{-- Nutrition --}}
+        <div class="explore-news-list-group">
+          <div class="explore-news-group-item">
+
+            {{-- Explore News Group Header --}}
+            <div class="explore-news-group-header d-flex flex-column">
+              <h3 class="explore-news-group-header-title font-outfit font-medium">
+                Nutrition
+              </h3>
+              <p class="explore-news-group-header-description font-open-sans">
+                Latest news on aquaculture genetics and discoveries
+              </p>
+            </div>
+
+            {{-- Explore News Items --}}
+            <div class="explore-news-items row">
+
+              {{-- First Item --}}
+              <div class="col-12 col-lg-5">
+                <a href="#" class="explore-news-item first-item d-flex flex-column">
+                  <img class="explore-news-item-image rounded " src="{{ asset('images/blog-thumbnail-template.png') }}"
+                    alt="explore-news">
+                  <div class="explore-news-text d-flex flex-column">
+                    <p class="explore-news-item-title">
+                      SCI’s strategic recommendations for Indonesian shrimp industry challenges
+                    </p>
+                    <span class="explore-news-item-date-author">
+                      May 25th, 2024 - Robert Baratheon
+                    </span>
+                  </div>
+                </a>
+              </div>
+
+              {{-- Second until Fourth Item --}}
+              <div class="col-12 col-lg-7 beside-first-item d-flex flex-column">
+
+                <a href="#" class="explore-news-item d-flex align-items-center">
+                  <img class="explore-news-item-image rounded " src="{{ asset('images/blog-thumbnail-template.png') }}"
+                    alt="explore-news">
+                  <div class="explore-news-item">
+                    <p class="explore-news-item-title">
+                      Boeing’s first astronaut flight called off at the last minute in latest setback
+                    </p>
+                    <span class="explore-news-item-date-author">
+                      May 25th, 2024 - Robert Baratheon
+                    </span>
+                  </div>
+                </a>
+
+                <a href="#" class="explore-news-item d-flex align-items-center">
+                  <img class="explore-news-item-image rounded " src="{{ asset('images/blog-thumbnail-template.png') }}"
+                    alt="explore-news">
+                  <div class="explore-news-item">
+                    <p class="explore-news-item-title">
+                      Boeing’s first astronaut flight called off at the last minute in latest setback
+                    </p>
+                    <span class="explore-news-item-date-author">
+                      May 25th, 2024 - Robert Baratheon
+                    </span>
+                  </div>
+                </a>
+
+                <a href="#" class="explore-news-item d-flex align-items-center">
+                  <img class="explore-news-item-image rounded " src="{{ asset('images/blog-thumbnail-template.png') }}"
+                    alt="explore-news">
+                  <div class="explore-news-item">
+                    <p class="explore-news-item-title">
+                      Boeing’s first astronaut flight called off at the last minute in latest setback
+                    </p>
+                    <span class="explore-news-item-date-author">
+                      May 25th, 2024 - Robert Baratheon
+                    </span>
+                  </div>
+                </a>
+              </div>
+
+              {{-- Rest Items --}}
+              <div class="rest-items col-12 d-flex flex-column">
+
+                <a href="#" class="explore-news-item d-flex align-items-center">
+                  <img class="explore-news-item-image rounded " src="{{ asset('images/blog-thumbnail-template.png') }}"
+                    alt="explore-news">
+                  <div class="explore-news-item">
+                    <p class="explore-news-item-title">
+                      Boeing’s first astronaut flight called off at the last minute in latest setback
+                    </p>
+                    <span class="explore-news-item-date-author">
+                      May 25th, 2024 - Robert Baratheon
+                    </span>
+                  </div>
+                </a>
+
+                <a href="#" class="explore-news-item d-flex align-items-center">
+                  <img class="explore-news-item-image rounded " src="{{ asset('images/blog-thumbnail-template.png') }}"
+                    alt="explore-news">
+                  <div class="explore-news-item">
+                    <p class="explore-news-item-title">
+                      Boeing’s first astronaut flight called off at the last minute in latest setback
+                    </p>
+                    <span class="explore-news-item-date-author">
+                      May 25th, 2024 - Robert Baratheon
+                    </span>
+                  </div>
+                </a>
+
+              </div>
+            </div>
+
+            {{-- Explore News Group Footer --}}
+            <div class="explore-news-group-footer">
+              <a href="#"
+                class="explore-news-group-footer-link font-outfit font-medium text-center d-flex justify-content-center align-items-center">
+                View All <i class="fas fa-chevron-down"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {{-- Genetics --}}
+        <div class="explore-news-list-group">
+          <div class="explore-news-group-item">
+
+            {{-- Explore News Group Header --}}
+            <div class="explore-news-group-header d-flex flex-column">
+              <h3 class="explore-news-group-header-title font-outfit font-medium">
+                Genetics
+              </h3>
+              <p class="explore-news-group-header-description font-open-sans">
+                Latest news on aquaculture genetics and discoveries
+              </p>
+            </div>
+
+            {{-- Explore News Items --}}
+            <div class="explore-news-items row">
+
+              {{-- First Item --}}
+              <div class="col-12 col-lg-5">
+                <a href="#" class="explore-news-item first-item d-flex flex-column">
+                  <img class="explore-news-item-image rounded " src="{{ asset('images/blog-thumbnail-template.png') }}"
+                    alt="explore-news">
+                  <div class="explore-news-text d-flex flex-column">
+                    <p class="explore-news-item-title">
+                      SCI’s strategic recommendations for Indonesian shrimp industry challenges
+                    </p>
+                    <span class="explore-news-item-date-author">
+                      May 25th, 2024 - Robert Baratheon
+                    </span>
+                  </div>
+                </a>
+              </div>
+
+              {{-- Second until Fourth Item --}}
+              <div class="col-12 col-lg-7 beside-first-item d-flex flex-column">
+
+                <a href="#" class="explore-news-item d-flex align-items-center">
+                  <img class="explore-news-item-image rounded " src="{{ asset('images/blog-thumbnail-template.png') }}"
+                    alt="explore-news">
+                  <div class="explore-news-item">
+                    <p class="explore-news-item-title">
+                      Boeing’s first astronaut flight called off at the last minute in latest setback
+                    </p>
+                    <span class="explore-news-item-date-author">
+                      May 25th, 2024 - Robert Baratheon
+                    </span>
+                  </div>
+                </a>
+
+                <a href="#" class="explore-news-item d-flex align-items-center">
+                  <img class="explore-news-item-image rounded " src="{{ asset('images/blog-thumbnail-template.png') }}"
+                    alt="explore-news">
+                  <div class="explore-news-item">
+                    <p class="explore-news-item-title">
+                      Boeing’s first astronaut flight called off at the last minute in latest setback
+                    </p>
+                    <span class="explore-news-item-date-author">
+                      May 25th, 2024 - Robert Baratheon
+                    </span>
+                  </div>
+                </a>
+
+                <a href="#" class="explore-news-item d-flex align-items-center">
+                  <img class="explore-news-item-image rounded " src="{{ asset('images/blog-thumbnail-template.png') }}"
+                    alt="explore-news">
+                  <div class="explore-news-item">
+                    <p class="explore-news-item-title">
+                      Boeing’s first astronaut flight called off at the last minute in latest setback
+                    </p>
+                    <span class="explore-news-item-date-author">
+                      May 25th, 2024 - Robert Baratheon
+                    </span>
+                  </div>
+                </a>
+              </div>
+
+              {{-- Rest Items --}}
+              <div class="rest-items col-12 d-flex flex-column">
+
+                <a href="#" class="explore-news-item d-flex align-items-center">
+                  <img class="explore-news-item-image rounded " src="{{ asset('images/blog-thumbnail-template.png') }}"
+                    alt="explore-news">
+                  <div class="explore-news-item">
+                    <p class="explore-news-item-title">
+                      Boeing’s first astronaut flight called off at the last minute in latest setback
+                    </p>
+                    <span class="explore-news-item-date-author">
+                      May 25th, 2024 - Robert Baratheon
+                    </span>
+                  </div>
+                </a>
+
+                <a href="#" class="explore-news-item d-flex align-items-center">
+                  <img class="explore-news-item-image rounded " src="{{ asset('images/blog-thumbnail-template.png') }}"
+                    alt="explore-news">
+                  <div class="explore-news-item">
+                    <p class="explore-news-item-title">
+                      Boeing’s first astronaut flight called off at the last minute in latest setback
+                    </p>
+                    <span class="explore-news-item-date-author">
+                      May 25th, 2024 - Robert Baratheon
+                    </span>
+                  </div>
+                </a>
+
+              </div>
+            </div>
+
+            {{-- Explore News Group Footer --}}
+            <div class="explore-news-group-footer">
+              <a href="#"
+                class="explore-news-group-footer-link font-outfit font-medium text-center d-flex justify-content-center align-items-center">
+                View All <i class="fas fa-chevron-down"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
 
