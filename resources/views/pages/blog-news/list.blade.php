@@ -13,7 +13,7 @@ Blog and News
     </h2>
   </div>
   <div class="blog-news row">
-    <a href="#" class="headline col-12 col-lg-6 d-flex flex-column">
+    <a href="{{route('blog-news.details', 'test-item')}}" class="headline col-12 col-lg-6 d-flex flex-column">
       <img src="{{ asset('images/blog-thumbnail-template.png') }}" alt="first-item">
       <div class="headline-text d-flex flex-column">
         <h3 class="headline-title font-outfit fw-normal">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-  return view('home');
+  return view('pages.home');
 })->name('home');
 
-Route::get('/blog-news', function () {
-  return view('blog-news');
-})->name('blog-news');
+Route::get('/blog-news', [ArticleController::class, 'index'])->name('blog-news');
+Route::get('/blog-news/{slug}', [ArticleController::class, 'details'])->name('blog-news.details');
