@@ -1037,6 +1037,167 @@ section.explore-news .explore-news-list .explore-news-list-group .explore-news-g
   text-decoration: underline;
 }
 
+section.details-article {
+  max-width: 736px;
+  padding-top: 48px;
+  padding-bottom: 220px;
+  row-gap: 2rem;
+}
+section.details-article * {
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 576px) {
+  section.details-article {
+    padding-top: 1.5rem;
+  }
+}
+section.details-article .header {
+  row-gap: 1rem;
+}
+section.details-article .header .breadcrumb-wrapper .breadcrumb * {
+  text-decoration: none;
+}
+section.details-article .header .breadcrumb-wrapper .breadcrumb .breadcrumb-item a {
+  font-size: 14px;
+  color: #80838d;
+}
+section.details-article .header .breadcrumb-wrapper .breadcrumb .breadcrumb-item.current-category a {
+  color: #0d6c8d;
+}
+section.details-article .header .title h1 {
+  font-size: 2rem;
+  color: #0d6c8d;
+}
+@media (max-width: 576px) {
+  section.details-article .header .title h1 {
+    font-size: 1.75rem;
+  }
+}
+section.details-article .header .abstract p {
+  color: #80838d;
+}
+@media (max-width: 576px) {
+  section.details-article .header .abstract p {
+    font-size: 14px;
+  }
+}
+section.details-article .header .author-and-publish-date {
+  padding: 0.5rem 1rem;
+}
+@media (max-width: 576px) {
+  section.details-article .header .author-and-publish-date {
+    padding: 0;
+  }
+}
+section.details-article .header .author-and-publish-date p {
+  color: #80838d;
+}
+@media (max-width: 576px) {
+  section.details-article .header .author-and-publish-date p {
+    font-size: 14px;
+  }
+}
+section.details-article .banner {
+  row-gap: 4px;
+}
+section.details-article .banner img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+@media (max-width: 576px) {
+  section.details-article .banner img {
+    height: 170px;
+  }
+}
+section.details-article .banner .source {
+  color: #80838d;
+  font-size: 10px;
+}
+section.details-article .content {
+  column-gap: 2rem;
+  row-gap: 3rem;
+}
+@media (max-width: 576px) {
+  section.details-article .content {
+    flex-direction: column;
+  }
+}
+section.details-article .content .additional-info {
+  max-width: 160px;
+  row-gap: 12px;
+}
+@media (max-width: 576px) {
+  section.details-article .content .additional-info {
+    align-items: start !important;
+  }
+}
+section.details-article .content .additional-info img.author-picture {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+}
+section.details-article .content .additional-info .author-info {
+  row-gap: 4px;
+}
+@media (max-width: 576px) {
+  section.details-article .content .additional-info .author-info {
+    align-items: start !important;
+  }
+}
+section.details-article .content .additional-info .author-info .name {
+  font-size: 18px;
+  color: #0d6c8d;
+}
+@media (max-width: 576px) {
+  section.details-article .content .additional-info .author-info .name {
+    text-align: start !important;
+  }
+}
+section.details-article .content .additional-info .author-info .role {
+  font-size: 12px;
+  color: #80838d;
+}
+@media (max-width: 576px) {
+  section.details-article .content .additional-info .author-info .role {
+    text-align: start !important;
+  }
+}
+section.details-article .content .additional-info .social-media {
+  column-gap: 12px;
+}
+section.details-article .content .additional-info .social-media a {
+  color: #80838d;
+  font-size: 20px;
+}
+section.details-article .content .additional-info .social-media a:hover {
+  color: #0d6c8d;
+}
+section.details-article .content .content-body {
+  row-gap: 1rem;
+}
+section.details-article .content .content-body h1,
+section.details-article .content .content-body h2,
+section.details-article .content .content-body h3,
+section.details-article .content .content-body h4,
+section.details-article .content .content-body h5,
+section.details-article .content .content-body h6 {
+  font-family: "Outfit", sans-serif;
+  color: #0d6c8d;
+}
+section.details-article .content .content-body p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  color: #80838d;
+}
+@media (max-width: 576px) {
+  section.details-article .content .content-body p {
+    font-size: 14px;
+  }
+}
+
 .font-open-sans {
   font-family: "Open Sans", sans-serif;
 }
