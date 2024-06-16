@@ -15,7 +15,7 @@
         <a class="nav-link" href="#">Our Services</a>
         <a class="nav-link" href="{{ route('products') }}">Products</a>
         <a class="nav-link" href="{{ route('blog-news') }}">Blog and News</a>
-        <a class="nav-link" href="#">Contacts</a>
+        <a class="nav-link" href="{{ route('contact') }}">Contacts</a>
       </div>
     </div>
   </div>

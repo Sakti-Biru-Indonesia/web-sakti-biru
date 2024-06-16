@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
   return view('pages.home');
 })->name('home');
+Route::get('/contact', function () {
+  return view('pages.contact');
+})->name('contact');
 
 Route::get('/blog-news', [ArticleController::class, 'index'])->name('blog-news');
 Route::get('/blog-news/{slug}', [ArticleController::class, 'details'])->name('blog-news.details');
