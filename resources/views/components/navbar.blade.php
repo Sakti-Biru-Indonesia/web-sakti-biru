@@ -13,7 +13,7 @@
       <div class="navbar-nav ms-auto">
         <a class="nav-link" href="{{ route('home') }}">Home</a>
         <a class="nav-link" href="#">Our Services</a>
-        <a class="nav-link" href="#">Products</a>
+        <a class="nav-link" href="{{ route('products') }}">Products</a>
         <a class="nav-link" href="{{ route('blog-news') }}">Blog and News</a>
         <a class="nav-link" href="#">Contacts</a>
       </div>
