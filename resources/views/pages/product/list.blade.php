@@ -26,7 +26,7 @@ Product List
 
     {{-- Product Item --}}
     @foreach ($products as $product)
-    <a href="#" class="product-item col-5 col-md-3 d-flex flex-column">
+    <a href="{{ route('product.details', 'asdasd') }}" class="product-item col-5 col-md-3 d-flex flex-column">
       <img src="{{ asset('images/product-placeholder.png') }}" alt="product">
 
       <div class="product-item-text font-outfit d-flex flex-column">

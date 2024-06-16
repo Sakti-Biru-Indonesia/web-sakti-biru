@@ -14,4 +14,9 @@ class ProductController extends Controller
 
     return view('pages.product.list', compact('products'));
   }
+
+  public function details()
+  {
+    return view('pages.product.details');
+  }
 }

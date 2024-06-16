@@ -23,4 +23,4 @@ Route::get('/blog-news', [ArticleController::class, 'index'])->name('blog-news')
 Route::get('/blog-news/{slug}', [ArticleController::class, 'details'])->name('blog-news.details');
 
 Route::get('/products', [ProductController::class, 'index'])->name('products');
-// Route::get('/products/{slug}', [ProductController::class, 'details'])->name('products.details');
+Route::get('/products/{slug}', [ProductController::class, 'details'])->name('product.details');

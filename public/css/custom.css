@@ -1310,6 +1310,135 @@ section.product-list .product-list-wrapper .product-item .product-item-text .pri
   }
 }
 
+section.product-details {
+  max-width: 928px;
+  row-gap: 1rem;
+  padding-top: 48px;
+  min-height: 750px;
+}
+section.product-details * {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+@media (max-width: 576px) {
+  section.product-details {
+    padding-top: 18px;
+    padding-bottom: 80px;
+  }
+}
+section.product-details .breadcrumb {
+  font-size: 12px;
+}
+section.product-details .breadcrumb .breadcrumb-item {
+  color: #0d6c8d;
+}
+section.product-details .breadcrumb .breadcrumb-item a {
+  color: #80838d;
+}
+section.product-details .breadcrumb .breadcrumb-item a:hover {
+  text-decoration: underline;
+}
+section.product-details .product-details-wrapper {
+  gap: 2rem;
+}
+section.product-details .product-details-wrapper .product-images {
+  row-gap: 1rem;
+}
+section.product-details .product-details-wrapper .product-images .main-image img {
+  width: 100%;
+  border-radius: 1rem;
+  object-fit: cover;
+}
+@media (max-width: 576px) {
+  section.product-details .product-details-wrapper .product-images .main-image img {
+    height: 250px;
+  }
+}
+section.product-details .product-details-wrapper .product-images .other-images {
+  column-gap: 1rem;
+}
+section.product-details .product-details-wrapper .product-images .other-images img {
+  border-radius: 8px;
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  cursor: pointer;
+}
+section.product-details .product-details-wrapper .product-images .other-images img:hover {
+  opacity: 0.75;
+}
+section.product-details .product-details-wrapper .product-details {
+  row-gap: 2rem;
+}
+section.product-details .product-details-wrapper .product-details .header {
+  row-gap: 8px;
+}
+section.product-details .product-details-wrapper .product-details .header h1 {
+  font-size: 24px;
+  color: #0d6c8d;
+  font-weight: 600;
+}
+section.product-details .product-details-wrapper .product-details .header p.category {
+  font-size: 1rem;
+  color: #80838d;
+}
+section.product-details .product-details-wrapper .product-details .details .accordion-item {
+  border: none;
+  border-bottom: 1px solid #dddde3;
+}
+section.product-details .product-details-wrapper .product-details .details .accordion-item:first-child {
+  border-top: 1px solid #dddde3;
+}
+section.product-details .product-details-wrapper .product-details .details .accordion-item h2 button {
+  color: #0d6c8d;
+  font-family: "Outfit", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 12px 1rem;
+  box-shadow: none;
+  background-color: white;
+}
+section.product-details .product-details-wrapper .product-details .details .accordion-item h2 button::after {
+  color: #0d6c8d;
+  fill: #0d6c8d;
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22%230D6C8D%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M1.646%204.646a.5.5%200%200%201%20.708%200L8%2010.293l5.646-5.647a.5.5%200%200%201%20.708.708l-6%206a.5.5%200%200%201-.708%200l-6-6a.5.5%200%200%201%200-.708z%22%2F%3E%3C%2Fsvg%3E);
+}
+section.product-details .product-details-wrapper .product-details .details .accordion-item .accordion-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+section.product-details .product-details-wrapper .product-details .details .accordion-item .accordion-body p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  color: #80838d;
+}
+section.product-details .product-details-wrapper .product-details .cta .price-contact {
+  border-radius: 1rem;
+  border-color: #c6d9e3 !important;
+  padding: 12px 1rem;
+  column-gap: 1rem;
+}
+section.product-details .product-details-wrapper .product-details .cta .price-contact .price {
+  row-gap: 8px;
+}
+section.product-details .product-details-wrapper .product-details .cta .price-contact .price .title {
+  color: #80838d;
+  font-size: 14px;
+}
+section.product-details .product-details-wrapper .product-details .cta .price-contact .price .value {
+  font-weight: 600;
+  font-size: 24px;
+  color: #0d6c8d;
+}
+section.product-details .product-details-wrapper .product-details .cta .price-contact a.contact {
+  padding: 8px 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
 .font-open-sans {
   font-family: "Open Sans", sans-serif;
 }
