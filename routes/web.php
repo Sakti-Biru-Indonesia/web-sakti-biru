@@ -27,3 +27,8 @@ Route::get('/blog-news/{slug}', [ArticleController::class, 'details'])->name('bl
 
 Route::get('/products', [ProductController::class, 'index'])->name('products');
 Route::get('/products/{slug}', [ProductController::class, 'details'])->name('product.details');
+
+// Dashboard
+Route::get('/dashboard', function () {
+  return view('pages.dashboard.home');
+})->middleware([])->name('dashboard.home');
