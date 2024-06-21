@@ -231,6 +231,20 @@ section.presentation {
         font-size: 16px;
       }
     }
+
+    img.wave {
+      opacity: 0.3;
+      height: 64px;
+      width: 74px;
+      object-fit: contain;
+
+      right: 0;
+      top: -2.5rem;
+
+      @media (max-width: 1200px) {
+        display: none;
+      }
+    }
   }
 }
 

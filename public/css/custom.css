@@ -427,6 +427,19 @@ section.presentation .text-content p {
     font-size: 16px;
   }
 }
+section.presentation .text-content img.wave {
+  opacity: 0.3;
+  height: 64px;
+  width: 74px;
+  object-fit: contain;
+  right: 0;
+  top: -2.5rem;
+}
+@media (max-width: 1200px) {
+  section.presentation .text-content img.wave {
+    display: none;
+  }
+}
 
 section.testimonies {
   padding-block: 10rem;

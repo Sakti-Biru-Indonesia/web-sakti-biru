@@ -41,6 +41,7 @@
       Sakti Biru Indonesia provided advance aquaculture services for fishery to maximize their production and help them
       achieve their business goals
     </p>
+    <img src="{{ asset('images/ic_round-waves.svg') }}" alt="wave" class="wave position-absolute">
   </div>
 </section>
 
