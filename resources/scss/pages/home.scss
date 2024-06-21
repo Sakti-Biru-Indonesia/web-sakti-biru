@@ -119,6 +119,48 @@ section.display-hero {
   }
 }
 
+section.opening {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  padding-block: 10rem;
+  row-gap: 48px;
+
+  @media (max-width: 768px) {
+    padding-block: 4rem;
+  }
+
+  img {
+    max-width: 640px;
+    height: 48px;
+    object-fit: cover;
+
+    @media (max-width: 576px) {
+      height: 32px;
+      max-width: 320px;
+    }
+  }
+
+  .text-content {
+    p {
+      font-size: 40px;
+      color: $primary-color;
+
+      max-width: 640px;
+
+      @media (max-width: 992px) {
+        font-size: 32px;
+      }
+
+      @media (max-width: 576px) {
+        font-size: 24px;
+      }
+    }
+  }
+}
+
 section.services {
   padding-block: 3rem;
   color: #0d6c8d;

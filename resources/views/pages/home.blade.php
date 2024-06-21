@@ -22,6 +22,14 @@
   </div>
 </section>
 
+{{-- Opening --}}
+<section class="opening d-flex flex-column align-items-center">
+  <img src="{{ asset('images/wave-asset.png') }}" alt="wave" class="rounded-pill">
+  <div class="text-content font-outfit text-center">
+    <p>We bring you the most reliable <b>aquaculture services</b> in Indonesia</p>
+  </div>
+</section>
+
 {{-- Services --}}
 <section class="services">
   <div class="heading">

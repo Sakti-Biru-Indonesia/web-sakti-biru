@@ -311,6 +311,46 @@ section.display-hero .graphics .round-waves {
   left: 1rem;
 }
 
+section.opening {
+  padding-block: 10rem;
+  row-gap: 48px;
+}
+section.opening * {
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 768px) {
+  section.opening {
+    padding-block: 4rem;
+  }
+}
+section.opening img {
+  max-width: 640px;
+  height: 48px;
+  object-fit: cover;
+}
+@media (max-width: 576px) {
+  section.opening img {
+    height: 32px;
+    max-width: 320px;
+  }
+}
+section.opening .text-content p {
+  font-size: 40px;
+  color: #0d6c8d;
+  max-width: 640px;
+}
+@media (max-width: 992px) {
+  section.opening .text-content p {
+    font-size: 32px;
+  }
+}
+@media (max-width: 576px) {
+  section.opening .text-content p {
+    font-size: 24px;
+  }
+}
+
 section.services {
   padding-block: 3rem;
   color: #0d6c8d;
