@@ -30,6 +30,45 @@
   </div>
 </section>
 
+{{-- Presentation --}}
+<section class="presentation d-flex justify-content-between align-items-center">
+  <img src="{{ asset('images/worker-werehouse.png') }}" alt="worker">
+  <div class="text-content font-outfit position-relative d-flex flex-column">
+    <h2>
+      Established in 2024,
+    </h2>
+    <p class="">
+      Sakti Biru Indonesia provided advance aquaculture services for fishery to maximize their production and help them
+      achieve their business goals
+    </p>
+  </div>
+</section>
+
+{{-- Testimonies --}}
+<section class="testimonies d-flex flex-column align-items-center">
+  <div class="header d-flex flex-column">
+    <p class="description font-outfit text-center">
+      With over 500 clients across Indonesia’s vast archipelago, we brings you innovation that change how you do
+      business
+      while also increasing your profit
+    </p>
+
+    <img src="{{ asset('images/wave-asset.png') }}" alt="wave" class="wave rounded-pill">
+  </div>
+
+  <div class="trusted-brands d-flex flex-column">
+    <p class="font-outfit text-center font-medium">
+      Trusted by
+    </p>
+    <div class="companies d-flex justify-content-center align-items-center flex-wrap">
+      <img src="{{ asset('images/brands/amazon.svg') }}" alt="amazon">
+      <img src="{{ asset('images/brands/google.svg') }}" alt="google">
+      <img src="{{ asset('images/brands/netflix.svg') }}" alt="netflix">
+      <img src="{{ asset('images/brands/tokopedia.svg') }}" alt="tokopedia">
+    </div>
+  </div>
+</section>
+
 {{-- Services --}}
 <section class="services">
   <div class="heading">
