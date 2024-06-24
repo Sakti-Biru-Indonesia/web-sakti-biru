@@ -21,9 +21,11 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
   <!-- Custom styles for this template-->
-  {{--
-  <link href="/assets/css/dashboard/sb-admin-2.min.css" rel="stylesheet"> --}}
   <link href="{{ asset('/css/dashboard/sb-admin-2.min.css') }}" rel="stylesheet">
+
+  {{-- Favicon --}}
+  <link rel="shortcut icon" href="{{asset('images/SBI-logo.png')}}" type="image/x-icon">
+
   <!-- Custom styles for this page -->
   @yield('custom-css-page-level')
 
@@ -64,7 +66,7 @@
       <footer class="sticky-footer bg-white mt-4">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; UI Trail Run</span>
+            <span>Copyright &copy; Sakti Biru Indonesia</span>
           </div>
         </div>
       </footer>
