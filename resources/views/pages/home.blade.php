@@ -8,7 +8,7 @@
       <span>Indonesia’s</span> Trusted Partner
     </h1>
     <p>
-      Lorem ipsum dolor sit amet consectetur. Tincidunt eleifend dignissim molestie fringilla lobortis
+      {{ __('messages.welcome') }}
     </p>
     <button class="btn btn-primary rounded-pill py-3 px-4">
       Talk to Us
