@@ -40,7 +40,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    @include('components.dashboard.sidebar')
+    {{-- @include('components.dashboard.sidebar') --}}
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -50,7 +50,7 @@
       <div id="content">
 
         <!-- Topbar -->
-        @include('components.dashboard.navbar-topbar')
+        {{-- @include('components.dashboard.navbar-topbar') --}}
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
