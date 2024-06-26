@@ -4,6 +4,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\StaticContentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,9 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('lang/{locale}', [LanguageController::class, 'swap'])->name('lang.swap');
 
-Route::get('/', function () {
-  return view('pages.home');
-})->name('home');
+Route::get('/', [StaticContentController::class, 'home'])->name('home');
 Route::get('/contact', function () {
   return view('pages.contact');
 })->name('contact');
