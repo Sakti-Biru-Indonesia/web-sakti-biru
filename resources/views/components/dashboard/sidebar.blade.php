@@ -24,15 +24,12 @@
   <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
       aria-controls="collapsePages">
-      <i class="fas fa-fw fa-table"></i>
-      <span>Registration</span>
+      <i class="fas fa-user"></i>
+      <span>Users</span>
     </a>
     <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
-        <a class="collapse-item" href="#">5KM</a>
-        <a class="collapse-item" href="#">5KM</a>
-        <a class="collapse-item" href="#">5KM</a>
-        <a class="collapse-item" href="#">5KM</a>
+        <a class="collapse-item" href="{{ route('dashboard.create.user') }}">Create User</a>
       </div>
     </div>
   </li>

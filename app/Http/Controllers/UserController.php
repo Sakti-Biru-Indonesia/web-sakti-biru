@@ -38,4 +38,42 @@ class UserController extends Controller
     Auth::logout();
     return redirect()->route('dashboard.login');
   }
+
+  public function admin_create(Request $request)
+  {
+    return view('pages.dashboard.user.create');
+  }
+
+  public function create_user(Request $request)
+  {
+    $name = $request->input('name');
+    $email = $request->input('email');
+    $password = $request->input('password');
+
+    if (Auth::user()->role !== 'ADMIN') {
+      return redirect()->back()->with('error', 'You do not have permission to create user')->withInput();
+    }
+
+    // validate all fields
+    $this->validate($request, [
+      'name' => 'required',
+      'email' => 'required|email|unique:users',
+      'password' => 'required|min:6',
+      'confirm_password' => 'required|same:password',
+    ]);
+
+    // create user
+    try {
+      User::create([
+        'name' => $name,
+        'email' => $email,
+        'password' => Hash::make($password),
+      ]);
+
+      return redirect()->back()->with('success', 'User created successfully');
+    } catch (\Throwable $th) {
+
+      return redirect()->back()->with('error', 'Failed to create user')->withInput();
+    }
+  }
 }

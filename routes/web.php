@@ -43,6 +43,9 @@ Route::prefix('dashboard')->group(function () {
     Route::get('/', function () {
       return view('pages.dashboard.home');
     })->name('dashboard.home');
+
+    Route::get('/create/user', [UserController::class, 'admin_create'])->name('dashboard.create.user');
+    Route::post('/create/user', [UserController::class, 'create_user'])->name('dashboard.admin-create.user');
   });
 
   Route::get('/login', [UserController::class, 'login'])->name('dashboard.login');
