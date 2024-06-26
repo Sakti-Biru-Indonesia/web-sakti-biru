@@ -39,17 +39,21 @@ Route::get('/products/{slug}', [ProductController::class, 'details'])->name('pro
 
 Route::prefix('dashboard')->group(function () {
 
+  Route::post('/logout', [UserController::class, 'logout'])->name('dashboard.logout');
+
+  Route::middleware(['has_logged'])->group(function () {
+    Route::get('/login', [UserController::class, 'login'])->name('dashboard.login');
+    Route::post('/login', [UserController::class, 'signin'])->name('dashboard.signin');
+  });
+
   Route::middleware(['auth'])->group(function () {
     Route::get('/', function () {
       return view('pages.dashboard.home');
     })->name('dashboard.home');
+  });
 
+  Route::middleware(['auth', 'just_admin'])->group(function () {
     Route::get('/create/user', [UserController::class, 'admin_create'])->name('dashboard.create.user');
     Route::post('/create/user', [UserController::class, 'create_user'])->name('dashboard.admin-create.user');
   });
-
-  Route::get('/login', [UserController::class, 'login'])->name('dashboard.login');
-  Route::post('/login', [UserController::class, 'signin'])->name('dashboard.signin');
-
-  Route::post('/logout', [UserController::class, 'logout'])->name('dashboard.logout');
 });

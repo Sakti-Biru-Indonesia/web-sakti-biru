@@ -21,6 +21,7 @@
   </li>
 
   <!-- Nav Item - Pages Collapse Menu -->
+  @if (Auth::user()->role === 'ADMIN')
   <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
       aria-controls="collapsePages">
@@ -33,6 +34,7 @@
       </div>
     </div>
   </li>
+  @endif
 
   <!-- Divider -->
   {{--
