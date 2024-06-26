@@ -8,7 +8,7 @@
       <span>Indonesia’s</span> Trusted Partner
     </h1>
     <p>
-      Lorem ipsum dolor sit amet consectetur. Tincidunt eleifend dignissim molestie fringilla lobortis
+      {{ __('messages.welcome') }}
     </p>
     <button class="btn btn-primary rounded-pill py-3 px-4">
       Talk to Us
@@ -74,7 +74,7 @@
 <section class="services">
   <div class="heading">
     <h2 class="font-medium font-outfit">
-      Our Services
+      {{ __('messages.our_services') }}
     </h2>
   </div>
 
@@ -85,28 +85,28 @@
           class="service-item col-12 col-lg-6 border p-3  w-auto d-flex flex-column align-items-end justify-content-between">
           <img src="{{ asset('images/package.svg') }}" alt="Input & Technology Supplier">
           <p class="font-medium font-outfit m-0">
-            Input & Technology Supplier
+            {{ __('messages.input_technology_supplier') }}
           </p>
         </div>
         <div
           class="service-item col-12 col-lg-6 border p-3  w-auto d-flex flex-column align-items-end justify-content-between">
           <img src="{{ asset('images/fishing-pole.svg') }}" alt="Input & Technology Supplier">
           <p class="font-medium font-outfit m-0">
-            Farm Management
+            {{ __('messages.farm_management') }}
           </p>
         </div>
         <div
           class="service-item col-12 col-lg-6 border p-3  w-auto d-flex flex-column align-items-end justify-content-between">
           <img src="{{ asset('images/handshake.svg') }}" alt="Input & Technology Supplier">
           <p class="font-medium font-outfit m-0">
-            Consultation
+            {{ __('messages.consultation') }}
           </p>
         </div>
         <div
           class="service-item col-12 col-lg-6 border p-3  w-auto d-flex flex-column align-items-end justify-content-between">
           <img src="{{ asset('images/snowflake.svg') }}" alt="Input & Technology Supplier">
           <p class="font-medium font-outfit m-0">
-            Cold Storage & Processing
+            {{ __('messages.cold_storage_processing') }}
           </p>
         </div>
       </div>
@@ -163,7 +163,7 @@
     <div
       class="text-content-wrapper font-outfit p-0 col-12 col-lg-6 col-xl-4 d-flex flex-column gap-3 align-items-end justify-content-center">
       <h2 class="font-medium text-end">
-        Our Expert Writers, Brings You The Leading Analysis
+        {{ __('messages.expert_writers_leading_analysis') }}
       </h2>
       <p class="text-end">
         Lorem ipsum dolor sit amet consectetur. Tincidunt eleifend dignissim molestie fringilla lobortis
@@ -180,7 +180,7 @@
   <div class="content-wrapper row justify-content-between justify-content-lg-center justify-content-xl-between">
     <div class="text-content col-12 col-xl-5 d-flex flex-column gap-3 align-items-start">
       <h2 class="font-medium font-outfit font-medium m-0">
-        Our World Leading Aquaculture Products
+        {{ __('messages.world_leading_aquaculture_products') }}
       </h2>
       <p class="font-outfit m-0">
         Lorem ipsum dolor sit amet consectetur. Tincidunt eleifend dignissim molestie fringilla lobortis
@@ -240,7 +240,7 @@
 <section class="contact row align-items-center">
   <form class="form d-flex flex-column p-0 font-outfit col-12 col-lg-6">
     <h2 class="font-medium">
-      Still have some questions ? Reach out to us..
+      {{ __('messages.still_have_questions_reach_out') }}
     </h2>
     <input type="text" placeholder="Name" class="form-control" id="name" aria-describedby="user-name">
     <input type="tel" placeholder="Phone Number" class="form-control" id="phone" aria-describedby="user-phone">

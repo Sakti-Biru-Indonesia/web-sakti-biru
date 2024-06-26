@@ -16,6 +16,7 @@
         <a class="nav-link" href="{{ route('products') }}">Products</a>
         <a class="nav-link" href="{{ route('blog-news') }}">Blog and News</a>
         <a class="nav-link" href="{{ route('contact') }}">Contacts</a>
+        @include('components.internasionalization')
       </div>
     </div>
   </div>
