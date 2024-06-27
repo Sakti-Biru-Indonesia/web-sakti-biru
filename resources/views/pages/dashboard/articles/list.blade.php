@@ -17,13 +17,18 @@
         Articles List
       </h6>
 
-      <a href="#" class="btn btn-primary">
+      <a href="{{ route('dashboard.articles.create') }}" class="btn btn-primary">
         <i class="fas fa-plus"></i>
         Create Article
       </a>
 
     </div>
     <div class="card-body">
+      @if (session()->has('success'))
+      <div class="alert alert-success" role="alert">
+        {{ session('success') }}
+      </div>
+      @endif
       <div class="article-list-table table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
@@ -49,27 +54,39 @@
             </tr>
           </tfoot>
           <tbody>
+            @foreach ($articlesList as $article)
+
             <tr>
-              <td class="number">1</td>
-              <td class="title">
-                Making a website with Laravel Without CSS Framework and Bootstrap 4 - Laravel
+              <td class="number">
+                {{ $loop->iteration }}
               </td>
-              <td class="author">Otto</td>
-              <td class="category">Laravel</td>
+              <td class="title">{{ $article['title'] }}</td>
+              <td class="author">{{ $article['user_name'] }}</td>
+              <td class="category">{{$article['category']}}</td>
               <td class="status">
-                {{-- <span class="badge badge-success">Published</span> --}}
+                @if ($article['status'])
+                <span class="badge badge-success">Published</span>
+                @else
                 <span class="badge badge-secondary">Unpublished</span>
+                @endif
               </td>
-              <td class="date">May 25th, 2024</td>
+              <td class="date">
+                {{ $article['publish_date'] ?? '-' }}
+              </td>
               <td class="action d-flex align-items-center border-0 h-100" style="column-gap: 4px">
                 <a href="#" class="btn btn-warning btn-sm">
                   <i class="fas fa-pencil-alt"></i>
                 </a>
-                <a href="#" class="btn btn-danger btn-sm">
-                  <i class="fas fa-trash"></i>
-                </a>
+                {{-- <form action="{{ route('dashboard.articles.destroy', $article['id']) }}" method="post">
+                  @csrf
+                  @method('DELETE')
+                  <button href="#" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </form> --}}
               </td>
             </tr>
+            @endforeach
 
 
           </tbody>
