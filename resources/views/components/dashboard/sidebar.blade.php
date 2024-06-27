@@ -14,10 +14,16 @@
   <hr class="sidebar-divider my-0">
 
   <!-- Nav Item - Dashboard -->
-  <li class="nav-item active">
+  <li class="nav-item {{ request()->routeIs('dashboard.home') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('dashboard.home') }}">
       <i class="fas fa-fw fa-tachometer-alt"></i>
-      <span>Dashboard</span></a>
+      <span>Home</span></a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="{{ route('dashboard.articles') }}">
+      <i class="far fa-sticky-note"></i>
+      <span>Articles</span></a>
   </li>
 
   <!-- Nav Item - Pages Collapse Menu -->

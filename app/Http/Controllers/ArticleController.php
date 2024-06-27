@@ -25,4 +25,9 @@ class ArticleController extends Controller
 
     return view('pages.blog-news.details', compact('bodyContent', 'author', 'abstract', 'publishDate'));
   }
+
+  public function list_article_admin()
+  {
+    return view('pages.dashboard.articles.list');
+  }
 }
