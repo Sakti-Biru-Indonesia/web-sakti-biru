@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LanguageController;
@@ -46,12 +47,16 @@ Route::prefix('dashboard')->group(function () {
   });
 
   Route::middleware(['auth'])->group(function () {
-    Route::get('/', function () {
-      return view('pages.dashboard.home');
-    })->name('dashboard.home');
+    Route::get('/', [DashboardController::class, 'home'])->name('dashboard.home');
+
+    Route::get('/articles', [ArticleController::class, 'list_article_admin'])->name('dashboard.articles');
+    Route::get('/articles/create', [ArticleController::class, 'create_article_admin'])->name('dashboard.articles.create');
+    Route::post('/articles/create', [ArticleController::class, 'store_article_admin'])->name('dashboard.articles.store');
   });
 
   Route::middleware(['auth', 'just_admin'])->group(function () {
+
+    // Users
     Route::get('/create/user', [UserController::class, 'admin_create'])->name('dashboard.create.user');
     Route::post('/create/user', [UserController::class, 'create_user'])->name('dashboard.admin-create.user');
   });

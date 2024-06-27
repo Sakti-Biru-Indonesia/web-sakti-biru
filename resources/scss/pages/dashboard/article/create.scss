@@ -1,0 +1,16 @@
+.create-article-card {
+  .form-floating:has(select) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  select.form-select {
+    padding: 6px 12px;
+    color: #6e707e;
+    font-family: "Nunito", sans-serif;
+    font-size: 16px;
+    border: 1px solid rgb(209, 211, 226);
+    border-radius: 0.35rem;
+    background-color: #fff;
+  }
+}

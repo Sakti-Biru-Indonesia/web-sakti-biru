@@ -17,6 +17,7 @@ return new class extends Migration
       $table->string('locale')->index();
       $table->string('slug')->unique();
       $table->string('title');
+      $table->text('sub_headline');
       $table->text('content');
       $table->timestamps();
     });
