@@ -149,7 +149,7 @@ const editorConfig = {
 			options: ['alignBlockLeft', 'block', 'alignBlockRight']
 		}
 	},
-	initialData:"",
+  // initialData:"",
 	link: {
 		addTargetToExternalLinks: true,
 		defaultProtocol: 'https://',
