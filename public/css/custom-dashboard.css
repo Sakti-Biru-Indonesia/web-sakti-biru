@@ -1,0 +1,108 @@
+.dropdown {
+  font-family: "Outfit", sans-serif;
+  margin-top: 5px;
+}
+.dropdown .active-language {
+  display: flex;
+  align-items: center;
+  padding: 4px 12px 4px 8px;
+  gap: 8px;
+  background-color: #EBEFF5;
+  border-radius: 80px;
+}
+.dropdown .active-language img {
+  width: 20px;
+  height: auto;
+  margin-right: 8px;
+}
+.dropdown .active-language span {
+  font-size: 16px;
+  font-weight: 500;
+  text-align: right;
+  line-height: 24px;
+  color: #0D6C8D;
+}
+
+.dropdown-menu {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #C6D9E3;
+  list-style: none;
+  gap: 8px;
+  padding: 8px;
+  margin-top: 8px !important;
+}
+.dropdown-menu li {
+  gap: 8px;
+  padding: 6px 8px 6px 8px;
+  border-radius: 8px;
+}
+.dropdown-menu li a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+}
+.dropdown-menu li a img {
+  width: 20px;
+  height: auto;
+}
+.dropdown-menu li a span {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15.12px;
+  color: #0D6C8D;
+}
+.dropdown-menu li:hover {
+  background: #F4F4F9;
+  border-radius: 8px;
+}
+
+.article-list .article-list-table #dataTable_wrapper .dataTables_length label,
+.article-list .article-list-table #dataTable_wrapper .dataTables_filter label {
+  display: flex;
+  column-gap: 4px;
+  align-items: center;
+}
+.article-list .article-list-table #dataTable_wrapper .dataTables_length label input,
+.article-list .article-list-table #dataTable_wrapper .dataTables_length label select,
+.article-list .article-list-table #dataTable_wrapper .dataTables_filter label input,
+.article-list .article-list-table #dataTable_wrapper .dataTables_filter label select {
+  width: auto;
+}
+.article-list .article-list-table #dataTable_wrapper .dataTables_filter label {
+  justify-content: end;
+}
+.article-list .article-list-table #dataTable_wrapper .row:has(.dataTables_info) {
+  margin-bottom: 1rem;
+}
+.article-list .article-list-table #dataTable_wrapper .col-sm-12.col-md-5:has(.dataTables_info) {
+  display: flex;
+  align-items: center;
+}
+.article-list .article-list-table #dataTable_wrapper .dataTables_paginate ul {
+  justify-content: end;
+  margin: 0;
+}
+.article-list .article-list-table table thead th.title {
+  width: 350px !important;
+}
+.article-list .article-list-table table thead th.publish-date {
+  width: 130px !important;
+}
+
+.create-article-card .form-floating:has(select) {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.create-article-card select.form-select {
+  padding: 6px 12px;
+  color: #6e707e;
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+  border: 1px solid rgb(209, 211, 226);
+  border-radius: 0.35rem;
+  background-color: #fff;
+}
+
+/*# sourceMappingURL=custom-dashboard.css.map */

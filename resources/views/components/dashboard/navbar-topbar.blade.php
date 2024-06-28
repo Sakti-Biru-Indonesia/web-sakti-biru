@@ -19,7 +19,7 @@
   </form> --}}
 
   <!-- Topbar Navbar -->
-  <ul class="navbar-nav ml-auto">
+  <ul class="navbar-nav ml-auto align-items-center">
 
     <!-- Nav Item - Search Dropdown (Visible Only XS) -->
     {{-- <li class="nav-item dropdown no-arrow d-sm-none">
@@ -42,6 +42,48 @@
         </form>
       </div>
     </li> --}}
+    <li class="nav-item" style="height: fit-content">
+      {{-- <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Dropdown (no arrow)
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </div> --}}
+
+      <div class="dropdown">
+        <button class="btn active-language" type="button" data-toggle="dropdown" aria-expanded="true"
+          id="dropdownLanguage">
+          @if (App::getLocale() == 'id')
+          <img src="{{ asset('images/indo.png') }}" alt="Indonesia Flag">
+          <span>ID</span>
+          @else
+          <img src="{{ asset('images/en.png') }}" alt="English Flag">
+          <span>EN</span>
+          @endif
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownLanguage">
+          <li>
+            <a href="{{ route('lang.swap', ['locale' => 'id']) }}">
+              <span>Bahasa Indonesia</span>
+              <img src="{{ asset('images/indo.png') }}" alt="Indonesia Flag">
+            </a>
+          </li>
+          <li>
+            <a href="{{ route('lang.swap', ['locale' => 'en']) }}">
+              <span>English</span>
+              <img src="{{ asset('images/en.png') }}" alt="English Flag">
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </li>
+
 
     <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -52,6 +94,8 @@
         <span class="mr-2 d-none d-lg-inline text-gray-600 small">
           {{ Auth::user()->name }}
         </span>
+        {{-- <img class="img-profile rounded-circle" src="img/undraw_profile.svg"> --}}
+        <img class="img-profile rounded-circle" src="{{asset('images/undraw_profile.svg')}}">
       </a>
       <!-- Dropdown - User Information -->
       <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
