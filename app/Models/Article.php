@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class Article extends Model
@@ -74,6 +75,75 @@ class Article extends Model
         'status' => true,
         'message' => 'Success Create Article',
         'data' => $article
+      ];
+    } catch (\Throwable $th) {
+      DB::rollBack();
+      return [
+        'status' => false,
+        'message' => $th->getMessage(),
+      ];
+    }
+  }
+
+  public function updateArticle($id, $locale, $title, $sub_headline, $image, $published_at, $is_published, $category_id, $content)
+  {
+    DB::beginTransaction();
+
+    try {
+
+      $article = Article::find($id);
+
+      // check if current user is the author of the article
+      if ($article->user_id !== Auth::user()->id) {
+        return [
+          'status' => false,
+          'message' => 'Cannot edit this article, you are not the author',
+        ];
+      }
+
+      $article->update([
+        'category_id' => $category_id,
+        'is_published' => $is_published,
+        'published_at' => $published_at,
+      ]);
+
+      // find translation
+      $articleTranslation = $article->articleTranslation->where('locale', $locale)->where('article_id', $id)->first();
+
+      if (!$articleTranslation) {
+        // insert new translation
+        $translationModel = new ArticleTranslation();
+        $articleTranslation = $translationModel->insertArticleTranslation(
+          $article->id,
+          $locale,
+          $title,
+          $sub_headline,
+          $content
+        );
+      } else {
+        // update translation
+        $articleTranslation->update([
+          'title' => $title,
+          'sub_headline' => $sub_headline,
+          'content' => $content
+        ]);
+      }
+
+      // store image to storage if image is uploaded
+      if ($image) {
+        $path = $image->storeAs('public/article', $image->hashName());
+        $article->update([
+          'image_banner_url' => $path
+        ]);
+      }
+
+      DB::commit();
+
+      return [
+        'status' => true,
+        'message' => 'Success Update Article',
+        'data' => $article,
+        'articleTranslation' => $articleTranslation
       ];
     } catch (\Throwable $th) {
       DB::rollBack();

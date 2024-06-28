@@ -29,6 +29,11 @@
         {{ session('success') }}
       </div>
       @endif
+      @if (session()->has('error'))
+      <div class="alert alert-danger" role="alert">
+        {{ session('error') }}
+      </div>
+      @endif
       <div class="article-list-table table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
@@ -73,17 +78,17 @@
               <td class="date">
                 {{ $article['publish_date'] ?? '-' }}
               </td>
-              <td class="action d-flex align-items-center border-0 h-100" style="column-gap: 4px">
-                <a href="#" class="btn btn-warning btn-sm">
+              <td class="action d-flex align-items-center border-bottom-0 h-100" style="column-gap: 4px">
+                <a href="{{ route('dashboard.articles.edit', $article['id']) }}" class="btn btn-warning btn-sm">
                   <i class="fas fa-pencil-alt"></i>
                 </a>
-                {{-- <form action="{{ route('dashboard.articles.destroy', $article['id']) }}" method="post">
+                <form action="{{ route('dashboard.articles.destroy', $article['id']) }}" method="post">
                   @csrf
                   @method('DELETE')
                   <button href="#" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">
                     <i class="fas fa-trash"></i>
                   </button>
-                </form> --}}
+                </form>
               </td>
             </tr>
             @endforeach

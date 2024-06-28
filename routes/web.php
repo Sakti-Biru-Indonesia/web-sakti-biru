@@ -52,6 +52,9 @@ Route::prefix('dashboard')->group(function () {
     Route::get('/articles', [ArticleController::class, 'list_article_admin'])->name('dashboard.articles');
     Route::get('/articles/create', [ArticleController::class, 'create_article_admin'])->name('dashboard.articles.create');
     Route::post('/articles/create', [ArticleController::class, 'store_article_admin'])->name('dashboard.articles.store');
+    Route::delete('/articles/{id}', [ArticleController::class, 'destroy_article_admin'])->name('dashboard.articles.destroy');
+    Route::get('/articles/{id}', [ArticleController::class, 'edit_article_admin'])->name('dashboard.articles.edit');
+    Route::patch('/articles/{id}', [ArticleController::class, 'update_article_admin'])->name('dashboard.articles.update');
   });
 
   Route::middleware(['auth', 'just_admin'])->group(function () {
