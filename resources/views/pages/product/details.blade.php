@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-Product List
+Product Detail
 @endsection
 
 @section('content')
@@ -11,7 +11,7 @@ Product List
   <nav aria-label="breadcrumb" class="font-open-sans">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="{{ route('products') }}">Products</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Nintendo Corporation</li>
+      <li class="breadcrumb-item active" aria-current="page">{{ $product->title }}</li>
     </ol>
   </nav>
 
@@ -20,14 +20,13 @@ Product List
     {{-- Product Images --}}
     <div class="product-images col d-flex flex-column">
       <div class="main-image">
-        <img class="main-image-item" src="{{ asset('images/product-placeholder.png') }}" alt="product">
+        <img class="main-image-item" src="{{ asset($product->images->first()->url ?? 'images/product-placeholder.png') }}" alt="product">
       </div>
 
       <div class="other-images d-flex">
-        <img class="other-image-item" src="{{ asset('images/product-placeholder.png') }}" alt="product">
-        <img class="other-image-item" src="{{ asset('images/product-placeholder.png') }}" alt="product">
-        <img class="other-image-item" src="{{ asset('images/product-placeholder.png') }}" alt="product">
-        <img class="other-image-item" src="{{ asset('images/product-placeholder.png') }}" alt="product">
+        @foreach ($product->images as $image)
+        <img class="other-image-item" src="{{ asset($image->url) }}" alt="product" onclick="changeMainImage('{{ asset($image->url) }}')">
+        @endforeach
       </div>
     </div>
 
@@ -37,10 +36,10 @@ Product List
       {{-- Header --}}
       <div class="header d-flex flex-column">
         <h1 class="title font-outfit">
-          Nintendo Game Boy Color - 30th Anniversary
+          {{ $product->title }}
         </h1>
         <p class="category font-open-sans">
-          Nintendo Corporation
+          {{ $product->category }}
         </p>
       </div>
 
@@ -60,16 +59,8 @@ Product List
               data-bs-parent="#product-details-desc-term">
               <div class="accordion-body">
                 <p>
-                  Lorem ipsum dolor sit amet consectetur. Nunc scelerisque habitant leo dui ut nibh. Commodo nunc
-                  feugiat
-                  tincidunt amet eleifend cursus mauris tempor vitae.
+                  {{ $product->detail_description }}
                 </p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur. Nunc scelerisque habitant leo dui ut nibh. Commodo nunc
-                  feugiat
-                  tincidunt amet eleifend cursus mauris tempor vitae.
-                </p>
-
               </div>
             </div>
           </div>
@@ -86,14 +77,7 @@ Product List
               data-bs-parent="#product-details-desc-term">
               <div class="accordion-body">
                 <p>
-                  Lorem ipsum dolor sit amet consectetur. Nunc scelerisque habitant leo dui ut nibh. Commodo nunc
-                  feugiat
-                  tincidunt amet eleifend cursus mauris tempor vitae.
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur. Nunc scelerisque habitant leo dui ut nibh. Commodo nunc
-                  feugiat
-                  tincidunt amet eleifend cursus mauris tempor vitae.
+                  {{ $product->purchase_conditions }}
                 </p>
               </div>
             </div>
@@ -106,7 +90,7 @@ Product List
         <div class="price-contact d-flex justify-content-between border align-items-center">
           <div class="price d-flex flex-column flex-fill">
             <span class="title font-open-sans">Harga Produk</span>
-            <span class="value font-outfit">Rp 100,000</span>
+            <span class="value font-outfit">Rp {{ number_format($product->price, 0, ',', '.') }}</span>
           </div>
           <a href="#" class="contact btn btn-wbi rounded-pill">
             Contact Sales
@@ -116,4 +100,11 @@ Product List
     </div>
   </div>
 </section>
+
+<script>
+  function changeMainImage(imageUrl) {
+    document.querySelector('.main-image-item').src = imageUrl;
+  }
+</script>
+
 @endsection

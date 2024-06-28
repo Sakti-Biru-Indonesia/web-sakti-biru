@@ -34,6 +34,13 @@
       </div>
     </div>
   </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="{{ route('products.index') }}">
+      <i class="fas fa-fw fa-box"></i>
+      <span>Products</span>
+    </a>
+  </li>
   @endif
 
   <!-- Divider -->
