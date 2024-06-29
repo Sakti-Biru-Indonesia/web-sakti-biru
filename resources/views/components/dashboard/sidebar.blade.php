@@ -20,21 +20,41 @@
       <span>Home</span></a>
   </li>
 
-  <li class="nav-item">
+  {{-- <li class="nav-item">
     <a class="nav-link" href="{{ route('dashboard.articles') }}">
       <i class="far fa-sticky-note"></i>
       <span>Articles</span></a>
+  </li> --}}
+
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#articles" aria-expanded="true"
+      aria-controls="articles">
+      <i class="far fa-sticky-note"></i>
+      <span>Articles</span></a>
+    </a>
+    <div id="articles" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+      <div class="bg-white py-2 collapse-inner rounded">
+        <a class="collapse-item" href="{{ route('dashboard.articles') }}">
+          Article List
+        </a>
+        @if (Auth::user()->role === 'ADMIN')
+        <a class="collapse-item" href="{{route('categories.index')}}">
+          Categories
+        </a>
+        @endif
+      </div>
+    </div>
   </li>
 
   <!-- Nav Item - Pages Collapse Menu -->
   @if (Auth::user()->role === 'ADMIN')
   <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
-      aria-controls="collapsePages">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#users" aria-expanded="true"
+      aria-controls="users">
       <i class="fas fa-user"></i>
       <span>Users</span>
     </a>
-    <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+    <div id="users" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
         <a class="collapse-item" href="{{ route('dashboard.create.user') }}">Create User</a>
       </div>

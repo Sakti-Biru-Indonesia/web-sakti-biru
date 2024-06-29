@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
@@ -63,5 +64,6 @@ Route::prefix('dashboard')->group(function () {
     Route::get('/create/user', [UserController::class, 'admin_create'])->name('dashboard.create.user');
     Route::post('/create/user', [UserController::class, 'create_user'])->name('dashboard.admin-create.user');
     Route::resource('/products', ProductController::class);
+    Route::resource('/categories', CategoryController::class);
   });
 });
