@@ -40,7 +40,7 @@ class ProductController extends Controller
       'price' => 'required|numeric',
       'detail_description' => 'required',
       'purchase_conditions' => 'required',
-      'sales_contact' => 'required',
+      'sales_contact' => 'required|url',
       'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048' // Validasi untuk gambar
     ]);
 
@@ -80,7 +80,7 @@ class ProductController extends Controller
       'price' => 'required|numeric',
       'detail_description' => 'required',
       'purchase_conditions' => 'required',
-      'sales_contact' => 'required',
+      'sales_contact' => 'required|url',
       'images' => 'nullable|array',
     ]);
 

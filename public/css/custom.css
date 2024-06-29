@@ -1618,12 +1618,18 @@ section.product-details .product-details-wrapper .product-images {
 }
 section.product-details .product-details-wrapper .product-images .main-image img {
   width: 100%;
+  height: 448px;
   border-radius: 1rem;
   object-fit: cover;
 }
 @media (max-width: 576px) {
   section.product-details .product-details-wrapper .product-images .main-image img {
     height: 250px;
+  }
+}
+@media (max-width: 768px) {
+  section.product-details .product-details-wrapper .product-images .main-image img {
+    height: 300px;
   }
 }
 section.product-details .product-details-wrapper .product-images .other-images {

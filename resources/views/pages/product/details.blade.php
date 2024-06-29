@@ -20,12 +20,14 @@ Product Detail
     {{-- Product Images --}}
     <div class="product-images col d-flex flex-column">
       <div class="main-image">
-        <img class="main-image-item" src="{{ asset($product->images->first()->url ?? 'images/product-placeholder.png') }}" alt="product">
+        <img class="main-image-item"
+          src="{{ asset($product->images->first()->url ?? 'images/product-placeholder.jpg') }}" alt="product">
       </div>
 
       <div class="other-images d-flex">
         @foreach ($product->images as $image)
-        <img class="other-image-item" src="{{ asset($image->url) }}" alt="product" onclick="changeMainImage('{{ asset($image->url) }}')">
+        <img class="other-image-item" src="{{ asset($image->url) }}" alt="product"
+          onclick="changeMainImage('{{ asset($image->url) }}')">
         @endforeach
       </div>
     </div>
@@ -92,7 +94,7 @@ Product Detail
             <span class="title font-open-sans">Harga Produk</span>
             <span class="value font-outfit">Rp {{ number_format($product->price, 0, ',', '.') }}</span>
           </div>
-          <a href="#" class="contact btn btn-wbi rounded-pill">
+          <a href="{{$product->sales_contact}}" target="_blank" class="contact btn btn-wbi rounded-pill">
             Contact Sales
           </a>
         </div>
