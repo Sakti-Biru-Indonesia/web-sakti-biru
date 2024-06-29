@@ -21,7 +21,9 @@ class ArticleController extends Controller
 
   public function index()
   {
-    return view('pages.blog-news.list');
+    // get categories from database and change it to array
+    $categories = Category::all();
+    return view('pages.blog-news.list', compact('categories'));
   }
   public function details($slug)
   {
@@ -111,14 +113,14 @@ class ArticleController extends Controller
 
       $article = $articleModel->insertArticle(
         Auth::user()->id,
-        $locale,
         $title,
         $sub_headline,
         $image,
         $publish_date,
         $publish_status,
         $category_id,
-        $content
+        $content,
+        $locale
       );
 
       if (!$article['status']) {
