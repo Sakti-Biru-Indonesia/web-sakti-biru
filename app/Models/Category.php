@@ -14,6 +14,11 @@ class Category extends Model
 
   protected $fillable = ['name', 'slug'];
 
+  public function articles()
+  {
+    return $this->hasMany(Article::class);
+  }
+
   public function createCategory($name)
   {
     $this::create([

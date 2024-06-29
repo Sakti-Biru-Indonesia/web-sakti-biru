@@ -1288,6 +1288,7 @@ section.explore-news .explore-news-list .explore-news-list-group .explore-news-g
   margin-bottom: 32px;
 }
 section.explore-news .explore-news-list .explore-news-list-group .explore-news-group-item .explore-news-group-header h3.explore-news-group-header-title {
+  text-transform: capitalize;
   font-size: 2rem;
   color: #0d6c8d;
 }
