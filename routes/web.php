@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\StaticContentController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\QuestionSenderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,8 @@ Route::get('/blog-news/{slug}', [ArticleController::class, 'details'])->name('bl
 
 Route::get('/products', [ProductController::class, 'list'])->name('products');
 Route::get('/products/{slug}', [ProductController::class, 'details'])->name('product.details');
+
+Route::post('/send-message', [QuestionSenderController::class, 'store'])->name('send-message');
 
 // Dashboard
 // Route::get('/dashboard', function () {
@@ -65,5 +68,6 @@ Route::prefix('dashboard')->group(function () {
     Route::post('/create/user', [UserController::class, 'create_user'])->name('dashboard.admin-create.user');
     Route::resource('/products', ProductController::class);
     Route::resource('/categories', CategoryController::class);
+    Route::get('/messages', [QuestionSenderController::class, 'index'])->name('dashboard.messages');
   });
 });

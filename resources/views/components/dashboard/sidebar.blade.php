@@ -67,6 +67,12 @@
       <span>Products</span>
     </a>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ route('dashboard.messages') }}">
+      <i class="fas fa-fw fa-comments"></i>
+      <span>Messages</span>
+    </a>
+  </li>
   @endif
 
   <!-- Divider -->
