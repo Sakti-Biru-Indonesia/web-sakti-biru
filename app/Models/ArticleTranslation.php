@@ -23,6 +23,11 @@ class ArticleTranslation extends Model
     'content',
   ];
 
+  public function article()
+  {
+    return $this->belongsTo(Article::class, 'article_id', 'id');
+  }
+
 
   public function insertArticleTranslation($article_id, $locale, $title, $sub_headline, $content)
   {

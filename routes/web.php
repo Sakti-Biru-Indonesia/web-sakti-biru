@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
@@ -30,7 +31,7 @@ Route::get('/contact', function () {
 Route::get('/blog-news', [ArticleController::class, 'index'])->name('blog-news');
 Route::get('/blog-news/{slug}', [ArticleController::class, 'details'])->name('blog-news.details');
 
-Route::get('/products', [ProductController::class, 'index'])->name('products');
+Route::get('/products', [ProductController::class, 'list'])->name('products');
 Route::get('/products/{slug}', [ProductController::class, 'details'])->name('product.details');
 
 Route::post('/send-message', [QuestionSenderController::class, 'store'])->name('send-message');
@@ -65,6 +66,8 @@ Route::prefix('dashboard')->group(function () {
     // Users
     Route::get('/create/user', [UserController::class, 'admin_create'])->name('dashboard.create.user');
     Route::post('/create/user', [UserController::class, 'create_user'])->name('dashboard.admin-create.user');
+    Route::resource('/products', ProductController::class);
+    Route::resource('/categories', CategoryController::class);
     Route::get('/messages', [QuestionSenderController::class, 'index'])->name('dashboard.messages');
   });
 });

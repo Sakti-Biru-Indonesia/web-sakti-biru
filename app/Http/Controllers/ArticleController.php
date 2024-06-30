@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\ArticleTranslation;
 use App\Models\Category;
+use App\Models\User;
 use Exception;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
@@ -19,19 +21,36 @@ class ArticleController extends Controller
 
   public function index()
   {
-    return view('pages.blog-news.list');
+    // get categories from database and change it to array
+    $categories = Category::all();
+    return view('pages.blog-news.list', compact('categories'));
   }
   public function details($slug)
   {
+    $locale = App::getLocale();
+    $articleTranslation = ArticleTranslation::where('slug', $slug)->first();
 
-    $res = Http::get('https://fakenews.squirro.com/news/finance');
+    if (!$articleTranslation) {
+      abort(404);
+    }
 
-    $bodyContent = $res->object()->news[0]->body;
-    $author = $res->object()->news[0]->author;
-    $abstract = $res->object()->news[0]->abstract;
-    $publishDate = $res->object()->news[0]->date;
+    $article = Article::where('id', $articleTranslation->article_id)->first();
+    $articleContent = ArticleTranslation::where('article_id', $articleTranslation->article_id)->where('locale', $locale)->first();
 
-    return view('pages.blog-news.details', compact('bodyContent', 'author', 'abstract', 'publishDate'));
+    // if article is not published
+    // or article publish date is in future
+    // or article publish date is null
+    if (!$article->is_published || $article->published_at > now()->toDate() || !$article->published_at) {
+      abort(404);
+    };
+
+    $user = User::where('id', $article->user_id)->first();
+
+    if (!$articleContent) {
+      abort(404);
+    }
+
+    return view('pages.blog-news.details', compact('article', 'articleContent', 'user'));
   }
 
   public function list_article_admin()
@@ -94,14 +113,14 @@ class ArticleController extends Controller
 
       $article = $articleModel->insertArticle(
         Auth::user()->id,
-        $locale,
         $title,
         $sub_headline,
         $image,
         $publish_date,
         $publish_status,
         $category_id,
-        $content
+        $content,
+        $locale
       );
 
       if (!$article['status']) {
@@ -234,9 +253,9 @@ class ArticleController extends Controller
   public function publish_validation($publish_date, $publish_status)
   {
     // check if article publish date is not in the past
-    if ($publish_status && $publish_date < date('Y-m-d')) {
-      throw new Exception('Publish Date cannot be in the past');
-    }
+    // if ($publish_status && $publish_date < date('Y-m-d')) {
+    //   throw new Exception('Publish Date cannot be in the past');
+    // }
 
     // chekc if article publish date must be present or future date
     if ($publish_status && $publish_date === null) {
