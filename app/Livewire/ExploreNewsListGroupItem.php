@@ -11,6 +11,7 @@ use Livewire\Component;
 class ExploreNewsListGroupItem extends Component
 {
   public $title;
+  public $categoryDescription;
   public $slug;
   public $locale;
   public $articles;
@@ -20,6 +21,8 @@ class ExploreNewsListGroupItem extends Component
   public function mount($category)
   {
     $this->title = $category->name;
+    $this->categoryDescription = $category->description;
+
     $this->slug = $category->slug;
     $this->locale = App::getLocale();
 
@@ -28,14 +31,15 @@ class ExploreNewsListGroupItem extends Component
       ->where('category_id', $category->id)
       ->where('is_published', true)
       ->orderBy('published_at', 'desc')
-      ->take(6)
+      ->take(7)
       ->get()->map(function ($article) {
+        $publishedDate = Carbon::parse($article->published_at)->locale($this->locale)->format('F j, Y');
         return [
           'id' => $article->id,
-          'title' => $article->articleTranslation->first()->title,
+          'title' => $article->articleTranslation->where('locale', $this->locale)->first()->title,
           'slug' => $article->articleTranslation->first()->slug,
           'image_banner_url' => str_replace('public', 'storage', $article->image_banner_url),
-          'publish_date' => Carbon::parse($article->published_at)->format('F j, Y'),
+          'publish_date' => $publishedDate,
           'author' => $article->user->name
         ];
       });

@@ -11,18 +11,27 @@ use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
 
-  // List of available locale for article translation
-  private $availableLocale = ['id', 'en'];
-
   public function index()
   {
-    // get categories from database and change it to array
-    $categories = Category::all();
+    // get categories that has published articles from database and change it to array
+    $categories = new Category();
+    $categories = $categories->get();
+
+    $categories = $categories->filter(function ($category) {
+      if ($category->hasPublishedArticles()) {
+        return $category;
+      }
+    });
+
+    // dd($categories);
+
     return view('pages.blog-news.list', compact('categories'));
   }
   public function details($slug)
@@ -42,7 +51,7 @@ class ArticleController extends Controller
     // or article publish date is null
     if (!$article->is_published || $article->published_at > now()->toDate() || !$article->published_at) {
       abort(404);
-    };
+    }
 
     $user = User::where('id', $article->user_id)->first();
 
@@ -90,7 +99,6 @@ class ArticleController extends Controller
     $content = $request->content;
     $category_id = $request->category;
     $image = $request->file('image_banner');
-    $locale = App::getLocale();
 
     // validate all input
     $request->validate([
@@ -120,7 +128,7 @@ class ArticleController extends Controller
         $publish_status,
         $category_id,
         $content,
-        $locale
+        // $locale
       );
 
       if (!$article['status']) {
@@ -148,9 +156,27 @@ class ArticleController extends Controller
       return back()->with('error', 'You are not the author of this article');
     }
 
-    // delete article
-    $article->delete();
-    return redirect()->route('dashboard.articles')->with('success', 'Success Delete Article');
+    DB::beginTransaction();
+
+    try {
+      // delete image
+      Storage::delete($article->image_banner_url);
+
+      // delete article
+      $article->delete();
+
+      // delete article translation
+      $article->articleTranslation->each(function ($translation) {
+        $translation->delete();
+      });
+
+      DB::commit();
+
+      return redirect()->route('dashboard.articles')->with('success', 'Success Delete Article');
+    } catch (\Throwable $th) {
+      DB::rollBack();
+      return redirect()->route('dashboard.articles')->with('error', 'Failed Delete Article');
+    }
   }
 
   public function edit_article_admin($id)
@@ -268,8 +294,9 @@ class ArticleController extends Controller
   public function check_available_locale()
   {
     $locale = App::getLocale();
+    $article = new Article();
 
-    if (!in_array($locale, $this->availableLocale)) {
+    if (!in_array($locale, $article->locales)) {
       throw new Exception('Invalid Locale');
     }
 

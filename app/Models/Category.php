@@ -40,5 +40,10 @@ class Category extends Model
     ];
   }
 
+  public function hasPublishedArticles()
+  {
+    return $this->articles()->where('is_published', true)->exists();
+  }
+
   use HasFactory;
 }

@@ -8,7 +8,7 @@
         {{$title}}
       </h3>
       <p class="explore-news-group-header-description font-open-sans">
-        Latest news on aquaculture genetics and discoveries
+        {{$categoryDescription}}
       </p>
     </div>
 
@@ -82,14 +82,18 @@
     </div>
 
     {{-- Explore News Group Footer --}}
+    @if ($articles->count() > 6)
+
     <div class="explore-news-group-footer">
       <a href="#"
         class="explore-news-group-footer-link font-outfit font-medium text-center d-flex justify-content-center align-items-center">
         View All <i class="fas fa-chevron-down"></i>
       </a>
     </div>
+    @endif
 
     @else
+
 
     <div class="row">
       <div class="col-12">

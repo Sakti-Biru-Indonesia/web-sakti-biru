@@ -22,6 +22,8 @@ class Article extends Model
     'published_at',
   ];
 
+  public $locales = ['id', 'en'];
+
   public function user()
   {
     return $this->belongsTo(User::class, 'user_id', 'id');
@@ -37,7 +39,7 @@ class Article extends Model
     return $this->hasMany(ArticleTranslation::class, 'article_id', 'id');
   }
 
-  public function insertArticle($user_id, $locale, $title, $sub_headline, $image,   $published_at, $is_published, $category_id, $content,)
+  public function insertArticle($user_id, $title, $sub_headline, $image,   $published_at, $is_published, $category_id, $content,)
   {
     $articleTranslation = new ArticleTranslation();
 
@@ -53,13 +55,17 @@ class Article extends Model
       ]);
 
       // insert translation
-      $articleTranslation->insertArticleTranslation(
-        $article->id,
-        $locale,
-        $title,
-        $sub_headline,
-        $content
-      );
+      // $locales = $this->locales;
+
+      foreach ($this->locales as $locale) {
+        $articleTranslation->insertArticleTranslation(
+          $article->id,
+          $locale,
+          $title,
+          $sub_headline,
+          $content
+        );
+      }
 
       // store image to storage
       $path = $image->storeAs('public/article', $image->hashName());
