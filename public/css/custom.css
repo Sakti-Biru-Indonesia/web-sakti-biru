@@ -965,7 +965,6 @@ section.contact .img-wrapper img {
 
 section.featured-news {
   padding-block: 48px;
-  margin-bottom: 48px;
   border-bottom: 1px solid #dddde3;
 }
 section.featured-news * {
@@ -1095,6 +1094,7 @@ section.featured-news .blog-news .secondary-headline .editor-pick .editor-pick-i
 
 section.explore-news {
   padding-bottom: 12rem;
+  padding-top: 48px;
 }
 section.explore-news * {
   margin: 0;

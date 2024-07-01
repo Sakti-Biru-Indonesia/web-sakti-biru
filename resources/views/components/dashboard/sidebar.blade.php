@@ -41,6 +41,9 @@
         <a class="collapse-item" href="{{route('categories.index')}}">
           Categories
         </a>
+        <a class="collapse-item" href="{{route('featured-articles.index')}}">
+          Featured Articles
+        </a>
         @endif
       </div>
     </div>

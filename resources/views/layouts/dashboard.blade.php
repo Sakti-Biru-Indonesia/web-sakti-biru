@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Dashboard - Web Sakti Biru</title>
+  <title>@yield('title', 'Web Sakti Biru') - Dashboard Web Sakti Biru</title>
 
   <!-- Custom fonts for this template-->
   {{--
