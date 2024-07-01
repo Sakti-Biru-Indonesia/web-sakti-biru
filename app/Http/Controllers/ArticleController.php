@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\ArticleTranslation;
 use App\Models\Category;
+use App\Models\FeaturedArticle;
 use App\Models\User;
 use Exception;
 use GuzzleHttp\Client;
@@ -30,9 +31,9 @@ class ArticleController extends Controller
       }
     });
 
-    // dd($categories);
+    $featuredArticleCount = FeaturedArticle::count();
 
-    return view('pages.blog-news.list', compact('categories'));
+    return view('pages.blog-news.list', compact('categories', 'featuredArticleCount'));
   }
   public function details($slug)
   {
@@ -208,6 +209,7 @@ class ArticleController extends Controller
       'id' => $id,
       'categories' => $categories,
       'article' => $article,
+      'featured' => $article->featuredArticle,
       'articleTranslation' => $articleTranslation
     ]);
   }
