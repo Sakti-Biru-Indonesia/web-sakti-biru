@@ -1,0 +1,53 @@
+.article-list {
+  .article-list-table {
+    #dataTable_wrapper {
+      .dataTables_length,
+      .dataTables_filter {
+        label {
+          display: flex;
+          column-gap: 4px;
+          align-items: center;
+
+          input,
+          select {
+            width: auto;
+          }
+        }
+      }
+
+      .dataTables_filter {
+        label {
+          justify-content: end;
+        }
+      }
+
+      .row:has(.dataTables_info) {
+        margin-bottom: 1rem;
+      }
+
+      .col-sm-12.col-md-5:has(.dataTables_info) {
+        display: flex;
+        align-items: center;
+      }
+
+      .dataTables_paginate {
+        ul {
+          justify-content: end;
+          margin: 0;
+        }
+      }
+    }
+
+    table {
+      thead {
+        th.title {
+          width: 350px !important;
+        }
+
+        th.publish-date {
+          width: 130px !important;
+        }
+      }
+    }
+  }
+}

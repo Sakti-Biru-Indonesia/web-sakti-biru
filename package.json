@@ -3,7 +3,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "sass": "sass -w ./resources/scss/main.scss:./public/css/custom.css"
+    "sass": "sass -w ./resources/scss/main.scss:./public/css/custom.css",
+    "dash-sass": "sass -w ./resources/scss/dashboard.scss:./public/css/custom-dashboard.css"
   },
   "devDependencies": {
     "axios": "^1.1.2",

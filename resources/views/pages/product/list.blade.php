@@ -26,22 +26,27 @@ Product List
 
     {{-- Product Item --}}
     @foreach ($products as $product)
-    <a href="#" class="product-item col-5 col-md-3 d-flex flex-column">
-      <img src="{{ asset('images/product-placeholder.png') }}" alt="product">
+    <a href="{{ route('product.details', $product->id) }}" class="product-item col-5 col-md-3 d-flex flex-column">
+      <img src="{{ asset($product->images->first()->url ?? 'images/product-placeholder.jpg') }}" alt="product">
 
       <div class="product-item-text font-outfit d-flex flex-column">
         <h3 class="font-medium">
-          Product Name
+          {{ $product->productDetail->where('locale', App::getLocale())->first()->name }}
         </h3>
         <p class="category font-open-sans">
-          Nintendo Switch
+          {{ $product->category }}
         </p>
         <p class="price font-medium">
-          Rp 100,000
+          Rp {{ number_format($product->price, 0, ',', '.') }}
+          {{-- {{ $product->price }} --}}
         </p>
       </div>
     </a>
     @endforeach
+  </div>
+  {{-- Pagination Links --}}
+  <div class="d-flex justify-content-center">
+    {{ $products->links('vendor.pagination.bootstrap-5') }}
   </div>
 </section>
 @endsection

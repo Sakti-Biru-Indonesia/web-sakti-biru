@@ -2,12 +2,14 @@
 @import "./components/common.scss";
 @import "./components/navbar.scss";
 @import "./components/footer.scss";
+@import "./components/internasionalization.scss";
 
 // Pages
 @import "./pages/home.scss";
 @import "./pages/blog-news.scss";
 @import "./pages/detail-article.scss";
 @import "./pages/product-list.scss";
+@import "./pages/product-details.scss";
 
 .font-open-sans {
   font-family: "Open Sans", sans-serif;

@@ -19,55 +19,69 @@ Details
     {{-- Title --}}
     <div class="title">
       <h1 class="font-outfit font-medium">
-        SCI’s strategic recommendations for Indonesian shrimp industry challenges
+        {{ $articleContent->title }}
       </h1>
     </div>
 
     {{-- Abstract --}}
     <div class="abstract">
       <p class="fw-normal">
-        SCI emphasized two key issues during the meeting: a decline in shrimp production in 2023 and an ongoing trend of
-        decreasing prices.
+        {{ $articleContent->sub_headline }}
       </p>
     </div>
 
     {{-- Author and Publish Date --}}
     <div class="author-and-publish-date">
       <p>
-        by <b>Robert Baratheon</b> • Published on <b>May 30th, 2024</b>
+        by <b>{{$user->name}}</b> • Published on <b>{{\Carbon\Carbon::parse($articleContent->published_at)->format('F j,
+          Y')}}</b>
       </p>
     </div>
   </div>
   <div class="banner d-flex flex-column align-items-end">
-    <img class="banner-image" src="{{ asset('images/blog-thumbnail-template.png') }}" alt="banner">
-    <span class="source">Source: Lorem Ipsum</span>
+    {{-- <img class="banner-image" src="{{ asset('images/blog-thumbnail-template.png') }}" alt="banner"> --}}
+    <img class="banner-image" src="{{ asset(str_replace('public', 'storage',($article->image_banner_url))) }}"
+      alt="{{$article->title}}">
+    {{-- <span class="source">Source: {{}}</span> --}}
   </div>
   <div class="content row">
     <div class="content-body col d-flex flex-column">
-      {!!$bodyContent!!}
+      {!!$articleContent->content!!}
     </div>
     <div class="additional-info col d-flex flex-column align-items-end">
 
       {{-- Author Picture --}}
-      <img class="author-picture rounded-circle" src="{{ asset('images/author-placeholder.png') }}" alt="author">
+      {{-- <img class="author-picture rounded-circle" src="{{ asset('images/author-placeholder.png') }}" alt="author"> --}}
+      <img class="author-picture rounded-circle" src="{{ $user->profile->profile_image ? asset('storage/' . $user->profile->profile_image) : asset('images/author-placeholder.png') }}" alt="author">
 
       {{-- Author Info --}}
       <div class="author-info d-flex flex-column align-items-end">
-        <p class="name font-outfit font-medium text-end">Robert Baratheon</p>
-        <p class="role font-open-sans text-end">Aquaculture Expert, for University of Manchester</p>
+        <p class="name font-outfit font-medium text-end">
+          {{$user->name}}
+        </p>
+        <p class="role font-open-sans text-end">{{ $user->profile->professional_title }}</p>
       </div>
 
       {{-- Social Media Link --}}
       <div class="social-media d-flex justify-content-end align-items-center">
-        <a href="#">
+
+        @if ($user->profile->facebook_url)
+        <a href="{{ $user->profile->facebook_url }}" target="_blank">
           <i class="bi bi-facebook"></i>
         </a>
-        <a href="#">
+        @endif
+
+        @if ($user->profile->linkedin_url)
+        <a href="{{ $user->profile->linkedin_url }}" target="_blank">
           <i class="bi bi-linkedin"></i>
         </a>
-        <a href="#">
+        @endif
+
+        @if ($user->profile->website_url)
+        <a href="{{ $user->profile->website_url }}" target="_blank">
           <i class="bi bi-globe"></i>
         </a>
+        @endif
       </div>
     </div>
   </div>
