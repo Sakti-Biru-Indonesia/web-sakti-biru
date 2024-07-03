@@ -95,7 +95,8 @@
           {{ Auth::user()->name }}
         </span>
         {{-- <img class="img-profile rounded-circle" src="img/undraw_profile.svg"> --}}
-        <img class="img-profile rounded-circle" src="{{asset('images/undraw_profile.svg')}}">
+        <img class="img-profile rounded-circle" style="object-fit: cover"
+          src="{{Auth::user()->profile->image ? asset('storage/' . Auth::user()->profile->image) : asset('images/author-placeholder.png')}}">
       </a>
       <!-- Dropdown - User Information -->
       <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

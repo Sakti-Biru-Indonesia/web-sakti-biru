@@ -10,11 +10,7 @@ use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\StaticContentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuestionSenderController;
-<<<<<<< HEAD
 use App\Http\Controllers\UserProfileController;
-=======
-use App\Models\FeaturedArticle;
->>>>>>> a54fa64897fad88275044acf244c2f096bf41ace
 
 /*
 |--------------------------------------------------------------------------
