@@ -14,7 +14,8 @@ class UserProfile extends Model
         'professional_title', 
         'website_url', 
         'facebook_url', 
-        'linkedin_url'
+        'linkedin_url',
+        'profile_image'
     ];
 
     public function user()

@@ -51,27 +51,37 @@ Details
     <div class="additional-info col d-flex flex-column align-items-end">
 
       {{-- Author Picture --}}
-      <img class="author-picture rounded-circle" src="{{ asset('images/author-placeholder.png') }}" alt="author">
+      {{-- <img class="author-picture rounded-circle" src="{{ asset('images/author-placeholder.png') }}" alt="author"> --}}
+      <img class="author-picture rounded-circle" src="{{ $user->profile->profile_image ? asset('storage/' . $user->profile->profile_image) : asset('images/author-placeholder.png') }}" alt="author">
 
       {{-- Author Info --}}
       <div class="author-info d-flex flex-column align-items-end">
         <p class="name font-outfit font-medium text-end">
           {{$user->name}}
         </p>
-        <p class="role font-open-sans text-end">Aquaculture Expert, for University of Manchester</p>
+        <p class="role font-open-sans text-end">{{ $user->profile->professional_title }}</p>
       </div>
 
       {{-- Social Media Link --}}
       <div class="social-media d-flex justify-content-end align-items-center">
-        <a href="#">
+
+        @if ($user->profile->facebook_url)
+        <a href="{{ $user->profile->facebook_url }}" target="_blank">
           <i class="bi bi-facebook"></i>
         </a>
-        <a href="#">
+        @endif
+
+        @if ($user->profile->linkedin_url)
+        <a href="{{ $user->profile->linkedin_url }}" target="_blank">
           <i class="bi bi-linkedin"></i>
         </a>
-        <a href="#">
+        @endif
+
+        @if ($user->profile->website_url)
+        <a href="{{ $user->profile->website_url }}" target="_blank">
           <i class="bi bi-globe"></i>
         </a>
+        @endif
       </div>
     </div>
   </div>

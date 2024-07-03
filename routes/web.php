@@ -9,6 +9,7 @@ use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\StaticContentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuestionSenderController;
+use App\Http\Controllers\UserProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,6 +60,9 @@ Route::prefix('dashboard')->group(function () {
     Route::delete('/articles/{id}', [ArticleController::class, 'destroy_article_admin'])->name('dashboard.articles.destroy');
     Route::get('/articles/{id}', [ArticleController::class, 'edit_article_admin'])->name('dashboard.articles.edit');
     Route::patch('/articles/{id}', [ArticleController::class, 'update_article_admin'])->name('dashboard.articles.update');
+
+    Route::get('user_profiles/create', [UserProfileController::class, 'create'])->name('user_profiles.create');
+    Route::post('user_profiles', [UserProfileController::class, 'store'])->name('user_profiles.store');
   });
 
   Route::middleware(['auth', 'just_admin'])->group(function () {

@@ -15,6 +15,7 @@ class CreateUserProfilesTable extends Migration
             $table->string('website_url')->nullable();
             $table->string('facebook_url')->nullable();
             $table->string('linkedin_url')->nullable();
+            $table->string('profile_image')->nullable();
             $table->timestamps();
         });
     }
