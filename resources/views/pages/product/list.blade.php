@@ -31,7 +31,7 @@ Product List
 
       <div class="product-item-text font-outfit d-flex flex-column">
         <h3 class="font-medium">
-          {{ $product->title }}
+          {{ $product->productDetail->where('locale', App::getLocale())->first()->name }}
         </h3>
         <p class="category font-open-sans">
           {{ $product->category }}

@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-Product Detail
+{{ $product->productDetail->where('locale', App::getLocale())->first()->name }} - Sakti Biru Indonesia
 @endsection
 
 @section('content')
@@ -11,7 +11,8 @@ Product Detail
   <nav aria-label="breadcrumb" class="font-open-sans">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="{{ route('products') }}">Products</a></li>
-      <li class="breadcrumb-item active" aria-current="page">{{ $product->title }}</li>
+      <li class="breadcrumb-item active" aria-current="page">{{ $product->productDetail->where('locale',
+        App::getLocale())->first()->name }}</li>
     </ol>
   </nav>
 
@@ -38,7 +39,7 @@ Product Detail
       {{-- Header --}}
       <div class="header d-flex flex-column">
         <h1 class="title font-outfit">
-          {{ $product->title }}
+          {{ $product->productDetail->where('locale', App::getLocale())->first()->name }}
         </h1>
         <p class="category font-open-sans">
           {{ $product->category }}
@@ -61,7 +62,7 @@ Product Detail
               data-bs-parent="#product-details-desc-term">
               <div class="accordion-body">
                 <p>
-                  {{ $product->detail_description }}
+                  {{ $product->productDetail->where('locale', App::getLocale())->first()->detail_description }}
                 </p>
               </div>
             </div>
@@ -79,7 +80,7 @@ Product Detail
               data-bs-parent="#product-details-desc-term">
               <div class="accordion-body">
                 <p>
-                  {{ $product->purchase_conditions }}
+                  {{ $product->productDetail->where('locale', App::getLocale())->first()->purchase_conditions }}
                 </p>
               </div>
             </div>

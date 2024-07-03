@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\ProductImage;
+use Exception;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
@@ -44,22 +46,48 @@ class ProductController extends Controller
       'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048' // Validasi untuk gambar
     ]);
 
-    $product = Product::create($request->except('images'));
 
-    if ($request->hasFile('images')) {
-      foreach ($request->file('images') as $image) {
-        $imageName = time() . '_' . $image->getClientOriginalName();
-        $image->storeAs('public/product_images', $imageName); // Simpan gambar di storage
-        $imageUrl = 'storage/product_images/' . $imageName; // Path gambar untuk disimpan di database
+    try {
+      DB::beginTransaction();
 
-        ProductImage::create([
-          'product_id' => $product->id,
-          'url' => $imageUrl
-        ]);
+      // $product = Product::create($request->except('images'));
+      $product = new Product();
+
+      $product = $product->insertProduct(
+        $request->title,
+        $request->price,
+        $request->detail_description,
+        $request->purchase_conditions,
+        $request->sales_contact
+      );
+
+      if ($product['status'] == 'error') {
+        throw new Exception($product['message']);
       }
-    }
 
-    return redirect()->route('products.index')->with('success', 'Product created successfully.');
+      $product = $product['product'];
+
+      if ($request->hasFile('images')) {
+        foreach ($request->file('images') as $image) {
+          $imageName = time() . '_' . $image->getClientOriginalName();
+          $image->storeAs('public/product_images', $imageName); // Simpan gambar di storage
+          $imageUrl = 'storage/product_images/' . $imageName; // Path gambar untuk disimpan di database
+
+          ProductImage::create([
+            'product_id' => $product->id,
+            'url' => $imageUrl
+          ]);
+        }
+      }
+
+      DB::commit();
+      return redirect()->route('products.index')->with('success', 'Product created successfully.');
+    } catch (\Throwable $th) {
+
+      DB::rollBack();
+      $message = $th->getMessage() ?? "Something went wrong, please try again later.";
+      return redirect()->back()->with('error', $message);
+    }
   }
 
   public function show(Product $product)
@@ -91,38 +119,66 @@ class ProductController extends Controller
       ]);
     }
 
-    $product = Product::findOrFail($id);
-    $product->update($request->except('images', 'delete_images'));
+    try {
+      //code...
 
-    // Menghapus gambar yang dipilih
-    if ($request->has('delete_images')) {
-      foreach ($request->delete_images as $imageId) {
-        $image = ProductImage::findOrFail($imageId);
-        Storage::delete('public/product_images/' . basename($image->url)); // Hapus gambar dari storage
-        $image->delete(); // Hapus data gambar dari database
+
+      $product = Product::findOrFail($id);
+      $product = $product->updateProduct(
+        $id,
+        $request->title,
+        $request->price,
+        $request->detail_description,
+        $request->purchase_conditions,
+        $request->sales_contact
+      );
+
+      if (!$product['status']) {
+        throw new Exception($product['message']);
       }
-    }
 
-    // Unggah gambar baru
-    if ($request->hasFile('images')) {
-      foreach ($request->file('images') as $image) {
-        $imageName = time() . '_' . $image->getClientOriginalName();
-        $image->storeAs('public/product_images', $imageName); // Simpan gambar di storage
-        $imageUrl = 'storage/product_images/' . $imageName; // Path gambar untuk disimpan di database
+      $product = $product['product'];
 
-        ProductImage::create([
-          'product_id' => $product->id,
-          'url' => $imageUrl
-        ]);
+      // Menghapus gambar yang dipilih
+      if ($request->has('delete_images')) {
+        foreach ($request->delete_images as $imageId) {
+          $productImage = new ProductImage();
+          $image = $productImage->findOrFail($imageId);
+          Storage::delete(str_replace('storage', 'public', $image->url));
+          $image->delete();
+        }
       }
-    }
 
-    return redirect()->route('products.index')->with('success', 'Product updated successfully.');
+      // Unggah gambar baru
+      if ($request->hasFile('images')) {
+        foreach ($request->file('images') as $image) {
+          $imageName = time() . '_' . $image->getClientOriginalName();
+          $image->storeAs('public/product_images', $imageName); // Simpan gambar di storage
+          $imageUrl = 'storage/product_images/' . $imageName; // Path gambar untuk disimpan di database
+
+          ProductImage::create([
+            'product_id' => $product->id,
+            'url' => $imageUrl
+          ]);
+        }
+      }
+
+      return redirect()->route('products.index')->with('success', 'Product updated successfully.');
+    } catch (\Throwable $th) {
+      $message = "Something went wrong, please try again later.";
+      return redirect()->back()->with('error', $message);
+    }
   }
 
   public function destroy(Product $product)
   {
-    $product->delete();
+    $productId = $product->id;
+    $product = $product->deleteProduct($productId);
+
+    if (!$product['status']) {
+      return redirect()->route('products.index')->with('error', 'Product failed to delete.');
+    }
+
     return redirect()->route('products.index')->with('success', 'Product deleted successfully.');
   }
 }

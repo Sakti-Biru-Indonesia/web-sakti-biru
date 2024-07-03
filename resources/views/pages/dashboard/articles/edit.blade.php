@@ -4,15 +4,41 @@
 <div class="create-article-card card shadow mb-4">
   <div class="card-header py-3 d-flex align-items-center justify-content-between">
     <h6 class="m-0 font-weight-bold text-primary">
-      Create Article
+      Edit Article
     </h6>
+    @if ($featured)
+    <form action="{{ route('featured-articles.destroy', $featured) }}" method="post">
+      @csrf
+      @method('DELETE')
+      <button type="submit" class="btn btn-danger btn-sm">
+        <i class="fas fa-minus"></i>
+        Remove From Featured Articles
+      </button>
+    </form>
+    @else
+    <form action="{{ route('featured-articles.store') }}" method="post">
+      @csrf
+      @method('POST')
+      <input type="hidden" name="article_id" value="{{ $id }}">
+      <button type="submit" class="btn btn-primary btn-sm">
+        <i class="fas fa-plus"></i>
+        Add To Featured Articles
+      </button>
+    </form>
+    @endif
   </div>
 
   <div class="card-body">
-    {{-- Form To Create Article --}}
+    {{-- Form To Edit Article --}}
     <form action="{{ route('dashboard.articles.update', $id) }}" method="POST" enctype="multipart/form-data">
       @csrf
       @method('PATCH')
+
+      @if (session()->has('success'))
+      <div class="alert alert-success" role="alert">
+        {{ session('success') }}
+      </div>
+      @endif
 
       @if (session()->has('error'))
       <div class="alert alert-danger" role="alert">

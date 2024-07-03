@@ -39,6 +39,11 @@ class Article extends Model
     return $this->hasMany(ArticleTranslation::class, 'article_id', 'id');
   }
 
+  public function featuredArticle()
+  {
+    return $this->hasOne(FeaturedArticle::class, 'article_id', 'id');
+  }
+
   public function insertArticle($user_id, $title, $sub_headline, $image,   $published_at, $is_published, $category_id, $content,)
   {
     $articleTranslation = new ArticleTranslation();

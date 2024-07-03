@@ -3,13 +3,18 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FeaturedArticleController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\StaticContentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuestionSenderController;
+<<<<<<< HEAD
 use App\Http\Controllers\UserProfileController;
+=======
+use App\Models\FeaturedArticle;
+>>>>>>> a54fa64897fad88275044acf244c2f096bf41ace
 
 /*
 |--------------------------------------------------------------------------
@@ -73,5 +78,6 @@ Route::prefix('dashboard')->group(function () {
     Route::resource('/products', ProductController::class);
     Route::resource('/categories', CategoryController::class);
     Route::get('/messages', [QuestionSenderController::class, 'index'])->name('dashboard.messages');
+    Route::resource('/featured-articles', FeaturedArticleController::class);
   });
 });
