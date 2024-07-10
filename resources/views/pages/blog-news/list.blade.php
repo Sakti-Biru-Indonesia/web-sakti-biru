@@ -48,50 +48,27 @@ Blog and News
         Our Writers
       </h3>
       <div class="author-list-wrapper d-flex flex-column">
+
+        @foreach ($users as $user)
         <a href="#" class="author-list-item d-flex align-items-center">
           <div class="author-list-item-text d-flex flex-column align-items-end">
             <p class="author-list-item-name font-outfit text-end font-medium">
-              Justin Knoll
+              {{$user->name}}
             </p>
             <span class="author-list-item-role font-outfit fw-normal text-end">
-              Commodities Expert
+              {{$user->profile ? $user->profile->professional_title : 'Contributor'}}
             </span>
           </div>
+          @if ($user->profile)
+          <img class="rounded-circle"
+            src="{{ asset($user->profile->profile_image ? str_replace('storage','public',$user->profile->profile_image) : 'images/author-placeholder.png') }}"
+            alt="author">
+          @else
           <img class="rounded-circle" src="{{ asset('images/author-placeholder.png') }}" alt="author">
+          @endif
         </a>
-        <a href="#" class="author-list-item d-flex align-items-center">
-          <div class="author-list-item-text d-flex flex-column align-items-end">
-            <p class="author-list-item-name font-outfit text-end font-medium">
-              Justin Knoll
-            </p>
-            <span class="author-list-item-role font-outfit fw-normal text-end">
-              Commodities Expert
-            </span>
-          </div>
-          <img class="rounded-circle" src="{{ asset('images/author-placeholder.png') }}" alt="author">
-        </a>
-        <a href="#" class="author-list-item d-flex align-items-center">
-          <div class="author-list-item-text d-flex flex-column align-items-end">
-            <p class="author-list-item-name font-outfit text-end font-medium">
-              Justin Knoll
-            </p>
-            <span class="author-list-item-role font-outfit fw-normal text-end">
-              Commodities Expert
-            </span>
-          </div>
-          <img class="rounded-circle" src="{{ asset('images/author-placeholder.png') }}" alt="author">
-        </a>
-        <a href="#" class="author-list-item d-flex align-items-center">
-          <div class="author-list-item-text d-flex flex-column align-items-end">
-            <p class="author-list-item-name font-outfit text-end font-medium">
-              Justin Knoll
-            </p>
-            <span class="author-list-item-role font-outfit fw-normal text-end">
-              Commodities Expert
-            </span>
-          </div>
-          <img class="rounded-circle" src="{{ asset('images/author-placeholder.png') }}" alt="author">
-        </a>
+        @endforeach
+
       </div>
     </div>
   </div>

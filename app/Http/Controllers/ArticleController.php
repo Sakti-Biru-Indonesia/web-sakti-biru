@@ -31,9 +31,11 @@ class ArticleController extends Controller
       }
     });
 
+    $users = User::all();
+
     $featuredArticleCount = FeaturedArticle::count();
 
-    return view('pages.blog-news.list', compact('categories', 'featuredArticleCount'));
+    return view('pages.blog-news.list', compact('categories', 'featuredArticleCount', 'users'));
   }
   public function details($slug)
   {
