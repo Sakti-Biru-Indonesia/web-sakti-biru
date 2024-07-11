@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -68,6 +69,14 @@ class UserController extends Controller
         'name' => $name,
         'email' => $email,
         'password' => Hash::make($password),
+      ]);
+
+      // create user profile
+      $user = User::where('email', $email)->first();
+
+      UserProfile::create([
+        'user_id' => $user->id,
+        'professional_title' => 'Contributor',
       ]);
 
       return redirect()->back()->with('success', 'User created successfully');

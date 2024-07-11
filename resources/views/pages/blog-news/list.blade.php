@@ -56,16 +56,12 @@ Blog and News
               {{$user->name}}
             </p>
             <span class="author-list-item-role font-outfit fw-normal text-end">
-              {{$user->profile ? $user->profile->professional_title : 'Contributor'}}
+              {{$user->profile->professional_title}}
             </span>
           </div>
-          @if ($user->profile)
           <img class="rounded-circle"
             src="{{ asset($user->profile->profile_image ? str_replace('storage','public',$user->profile->profile_image) : 'images/author-placeholder.png') }}"
             alt="author">
-          @else
-          <img class="rounded-circle" src="{{ asset('images/author-placeholder.png') }}" alt="author">
-          @endif
         </a>
         @endforeach
 
