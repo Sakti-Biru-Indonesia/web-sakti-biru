@@ -1141,6 +1141,7 @@ section.explore-news .author-list .author-list-item img {
 }
 section.explore-news .author-list .author-list-wrapper {
   row-gap: 1rem;
+  align-items: end;
 }
 section.explore-news .explore-news-list {
   padding-right: 1rem;
