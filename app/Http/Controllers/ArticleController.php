@@ -194,9 +194,9 @@ class ArticleController extends Controller
     }
 
     // if user is the author of the article and is not admin
-    if (($article->user_id !== Auth::user()->id) && !Auth::user()->role !== 'ADMIN') {
-      return back()->with('error', 'Cannot edit this article, you are not the author');
-    }
+    // if (($article->user_id !== Auth::user()->id) && !Auth::user()->role !== 'ADMIN') {
+    //   return back()->with('error', 'Cannot edit this article, you are not the author');
+    // }
 
     // if article translation with current locale is not found, just use other article translation with other locale
     $articleTranslation = $article->articleTranslation->where('locale', $locale)->where('article_id', $id)->first();
