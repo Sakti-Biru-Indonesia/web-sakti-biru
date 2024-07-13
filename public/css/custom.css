@@ -256,12 +256,12 @@ section.display-hero {
 }
 @media (min-width: 1024px) {
   section.display-hero {
-    padding-block: 8rem;
+    padding-top: 64px;
+    padding-bottom: 8rem;
   }
 }
 @media (min-width: 1400px) {
   section.display-hero {
-    padding-top: 14rem;
     padding-bottom: 5rem;
   }
 }
@@ -270,6 +270,7 @@ section.display-hero .content {
   flex-direction: column;
   gap: 0.5rem;
   align-items: start;
+  justify-content: center;
   max-width: 100vw;
 }
 @media (min-width: 1024px) {
@@ -285,7 +286,7 @@ section.display-hero .content h1 {
 }
 @media (min-width: 1024px) {
   section.display-hero .content h1 {
-    font-size: 72px;
+    font-size: 61px;
   }
 }
 section.display-hero .content h1 span {
@@ -317,17 +318,15 @@ section.display-hero .content button:hover {
   color: white;
 }
 section.display-hero .graphics {
-  position: relative;
   width: 624px;
   display: none;
 }
 @media (min-width: 1024px) {
   section.display-hero .graphics {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: end;
   }
-}
-section.display-hero .graphics img {
-  position: absolute;
 }
 section.display-hero .graphics .sea {
   width: 495px;
@@ -493,7 +492,7 @@ section.presentation .text-content img.wave {
   width: 74px;
   object-fit: contain;
   right: 0;
-  top: -2.5rem;
+  top: -4rem;
 }
 @media (max-width: 1200px) {
   section.presentation .text-content img.wave {
@@ -515,7 +514,7 @@ section.testimonies p {
 }
 section.testimonies .header {
   row-gap: 48px;
-  max-width: 640px;
+  max-width: 704px;
 }
 @media (max-width: 992px) {
   section.testimonies .header {

@@ -5,20 +5,23 @@
 <section class="display-hero">
   <div class="content">
     <h1>
-      <span>Indonesia’s</span> Trusted Partner
+      {{-- <span>Indonesia’s</span> Trusted Partner --}}
+      {{-- {{ __('messages.heading_hero') }} --}}
+      <b>One-Stop Solution</b> for Your Shrimp Aquaculture
     </h1>
-    <p>
+    {{-- <p>
       {{ __('messages.welcome') }}
-    </p>
+    </p> --}}
     <button class="btn btn-primary rounded-pill py-3 px-4">
       Talk to Us
     </button>
   </div>
   <div class="graphics">
-    <img class="bg-wave" src="{{ asset('images/background-wave.png') }}" alt="background-wave">
-    <img class="sea" src="{{ asset('images/sea.jpg') }}" alt="sea">
+    <img class="hero-art" src="{{ asset('images/hero-art.png') }}" alt="hero art">
+    {{-- <img class="bg-wave" src="{{ asset('images/background-wave.png') }}" alt="background-wave"> --}}
+    {{-- <img class="sea" src="{{ asset('images/sea.jpg') }}" alt="sea">
     <img class="fishery" src="{{ asset('images/fishery.png') }}" alt="fishery">
-    <img class="round-waves" src="{{ asset('images/ic_round-waves.svg') }}" alt="round-waves">
+    <img class="round-waves" src="{{ asset('images/ic_round-waves.svg') }}" alt="round-waves"> --}}
   </div>
 </section>
 
@@ -26,20 +29,23 @@
 <section class="opening d-flex flex-column align-items-center">
   <img src="{{ asset('images/wave-asset.png') }}" alt="wave" class="rounded-pill">
   <div class="text-content font-outfit text-center">
-    <p>We bring you the most reliable <b>aquaculture services</b> in Indonesia</p>
+    {{-- <p>We bring you the most reliable <b>aquaculture services</b> in Indonesia</p> --}}
+    <p>
+      Empowering shrimp farmers for <b>sustainable</b> aquaculture and a <b>resilient</b> blue economy
+    </p>
   </div>
 </section>
 
 {{-- Presentation --}}
 <section class="presentation d-flex justify-content-between align-items-center">
-  <img src="{{ asset('images/worker-werehouse.png') }}" alt="worker">
+  <img src="{{ asset('images/fishpond.png') }}" alt="fishpond">
   <div class="text-content font-outfit position-relative d-flex flex-column">
     <h2>
-      Established in 2024,
+      Transforming a Trusted Legacy,
     </h2>
     <p class="">
-      Sakti Biru Indonesia provided advance aquaculture services for fishery to maximize their production and help them
-      achieve their business goals
+      With our extensive experience and expertise in the shrimp industry, we bring an innovative approach to provide
+      comprehensive solutions for your shrimp farming.
     </p>
     <img src="{{ asset('images/ic_round-waves.svg') }}" alt="wave" class="wave position-absolute">
   </div>
@@ -49,9 +55,9 @@
 <section class="testimonies d-flex flex-column align-items-center">
   <div class="header d-flex flex-column">
     <p class="description font-outfit text-center">
-      With over 500 clients across Indonesia’s vast archipelago, we brings you innovation that change how you do
-      business
-      while also increasing your profit
+      With an extensive network, <b>we collaborate with key partners</b> to deliver the best products and services,
+      <b>enhancing
+        the effectiveness and efficiency</b> of farming practices
     </p>
 
     <img src="{{ asset('images/wave-asset.png') }}" alt="wave" class="wave rounded-pill">
@@ -71,7 +77,7 @@
 </section>
 
 {{-- Services --}}
-<section class="services">
+<section class="services" id="services">
   <div class="heading">
     <h2 class="font-medium font-outfit">
       {{ __('messages.our_services') }}
@@ -123,50 +129,36 @@
 
 {{-- Blog and News --}}
 <section class="blog-news">
+
+  {{-- Blog and News Wrapper --}}
   <div class="blog-news-wrapper row justify-content-between">
-    <div class="blog-news-item-wrapper p-0 col-12 col-lg-6 col-xl-5 d-flex flex-column">
+    <div class="blog-news-item-wrapper p-0 col-12 col-lg-6 col-xl-5 d-flex flex-column justify-content-center">
+
+      @foreach ($articles as $article)
+      {{-- Blog and News Item --}}
       <div class="blog-news-item d-flex gap-2 align-items-center">
-        <img class="rounded" src="{{ asset('images/sea.jpg') }}" alt="blog-news">
+        <img class="rounded" src="{{ asset($article['image_banner_url']) }}" alt="blog-news">
         <div class="text-wrapper d-flex flex-column gap-1">
-          <a href="#" class="title font-outfit">
-            Boeing’s first astronaut flight called off at the last minute in latest setback
+          <a href="{{route('blog-news.details', $article['slug'])}}" class="title font-outfit">
+            {{ $article['title'] }}
           </a>
           <span class="date-author font-open-sans">
-            May 25th, 2024 - Justin Knoll
+            {{ $article['publish_date'] }} - {{ $article['author'] }}
           </span>
         </div>
       </div>
-      <div class="blog-news-item d-flex gap-2 align-items-center">
-        <img class="rounded" src="{{ asset('images/sea.jpg') }}" alt="blog-news">
-        <div class="text-wrapper d-flex flex-column gap-1">
-          <a href="#" class="title font-outfit">
-            Boeing’s first astronaut flight called off at the last minute in latest setback
-          </a>
-          <span class="date-author font-open-sans">
-            May 25th, 2024 - Justin Knoll
-          </span>
-        </div>
-      </div>
-      <div class="blog-news-item d-flex gap-2 align-items-center">
-        <img class="rounded" src="{{ asset('images/sea.jpg') }}" alt="blog-news">
-        <div class="text-wrapper d-flex flex-column gap-1">
-          <a href="#" class="title font-outfit">
-            Boeing’s first astronaut flight called off at the last minute in latest setback
-          </a>
-          <span class="date-author font-open-sans">
-            May 25th, 2024 - Justin Knoll
-          </span>
-        </div>
-      </div>
+      @endforeach
+
     </div>
 
     <div
-      class="text-content-wrapper font-outfit p-0 col-12 col-lg-6 col-xl-4 d-flex flex-column gap-3 align-items-end justify-content-center">
+      class="text-content-wrapper font-outfit p-0 col-12 col-lg-6  d-flex flex-column gap-3 align-items-end justify-content-center">
       <h2 class="font-medium text-end">
         {{ __('messages.expert_writers_leading_analysis') }}
       </h2>
       <p class="text-end">
-        Lorem ipsum dolor sit amet consectetur. Tincidunt eleifend dignissim molestie fringilla lobortis
+        Offering comprehensive insights into shrimp farming, covering all aspects such as genetics, nutrition, health,
+        water quality, market trends, technology, and construction
       </p>
       <button class="btn btn-primary rounded-pill py-3">
         Read Articles
@@ -183,7 +175,8 @@
         {{ __('messages.world_leading_aquaculture_products') }}
       </h2>
       <p class="font-outfit m-0">
-        Lorem ipsum dolor sit amet consectetur. Tincidunt eleifend dignissim molestie fringilla lobortis
+        We offer a comprehensive range of products. From high-quality shrimp larvae and nutritious feed to probiotics,
+        aerators, and autofeeders, we provide everything you need to ensure healthy growth and maximum yield
       </p>
       <button class="btn btn-primary rounded-pill py-3 font-outfit font-medium">
         Explore
@@ -191,10 +184,10 @@
     </div>
 
     <div class="product-preview col-12 col-xl-7">
-      <img src="{{ asset('images/img-1.png') }}" alt="sea">
-      <img src="{{ asset('images/img-2.png') }}" alt="sea">
-      <img src="{{ asset('images/img-3.png') }}" alt="sea">
-      <img src="{{ asset('images/img-4.png') }}" alt="sea">
+      <img src="{{ asset('images/feed.png') }}" alt="sea">
+      <img src="{{ asset('images/PCR.png') }}" alt="sea">
+      <img src="{{ asset('images/post-larvae.png') }}" alt="sea">
+      <img src="{{ asset('images/aerators.png') }}" alt="sea">
     </div>
   </div>
 </section>
@@ -209,12 +202,12 @@
           Lorem ipsum dolor sit amet consectetur. Tincidunt eleifend..
         </h2>
         <p class="font-open-sans">
-          <span>Jane Doe,</span> VP of Sales for Green Initiative Indonesia
+          <span>John Doe,</span> VP of Sales for Green Initiative Indonesia
         </p>
       </div>
     </div>
     <div class="img-wrapper">
-      <img src="{{ asset('images/testimonial-1.png') }}" alt="testimonial">
+      <img src="{{ asset('images/user-1.png') }}" alt="testimonial">
     </div>
   </div>
 
@@ -231,7 +224,7 @@
       </div>
     </div>
     <div class="img-wrapper">
-      <img src="{{ asset('images/testimonial-1.png') }}" alt="testimonial">
+      <img src="{{ asset('images/user-2.png') }}" alt="testimonial">
     </div>
   </div>
 </section>
@@ -239,44 +232,46 @@
 {{-- Contact --}}
 
 <section class="contact row align-items-center">
-  <form action="{{ route('send-message') }}" method="POST" class="form d-flex flex-column p-0 font-outfit col-12 col-lg-6">
-      @csrf
-      <h2 class="font-medium">Still have some questions? Reach out to us..</h2>
+  <form action="{{ route('send-message') }}" method="POST"
+    class="form d-flex flex-column p-0 font-outfit col-12 col-lg-6">
+    @csrf
+    <h2 class="font-medium">Still have some questions? Reach out to us..</h2>
 
-      <div class="">
-          <div class="mt-2">
-              <input type="text" name="name" placeholder="Name" class="form-control" id="name"
-                  value="{{ old('name') }}" required>
-          </div>
-          @error('name')
-              <span class="text-danger">{{ $message }}</span>
-          @enderror
+    <div class="">
+      <div class="mt-2">
+        <input type="text" name="name" placeholder="Name" class="form-control" id="name" value="{{ old('name') }}"
+          required>
       </div>
+      @error('name')
+      <span class="text-danger">{{ $message }}</span>
+      @enderror
+    </div>
 
-      <div class="">
-          <div class="mt-2">
-              <input type="text" name="phone_number" placeholder="Phone Number" class="form-control" id="phone"
-                  value="{{ old('phone_number') }}" required>
-          </div>
-          @error('phone_number')
-              <span class="text-danger">{{ $message }}</span>
-          @enderror
+    <div class="">
+      <div class="mt-2">
+        <input type="text" name="phone_number" placeholder="Phone Number" class="form-control" id="phone"
+          value="{{ old('phone_number') }}" required>
       </div>
+      @error('phone_number')
+      <span class="text-danger">{{ $message }}</span>
+      @enderror
+    </div>
 
-      <div class="">
-          <div class="mt-2">
-              <textarea name="message" class="form-control" placeholder="Your Message" id="message" required>{{ old('message') }}</textarea>
-          </div>
-          @error('message')
-              <span class="text-danger">{{ $message }}</span>
-          @enderror
+    <div class="">
+      <div class="mt-2">
+        <textarea name="message" class="form-control" placeholder="Your Message" id="message"
+          required>{{ old('message') }}</textarea>
       </div>
+      @error('message')
+      <span class="text-danger">{{ $message }}</span>
+      @enderror
+    </div>
 
-      <button type="submit" class="btn btn-primary rounded-pill btn-wbi align-self-end">Send</button>
+    <button type="submit" class="btn btn-primary rounded-pill btn-wbi align-self-end">Send</button>
   </form>
 
   <div class="img-wrapper col-12 col-lg-6 justify-content-end px-0">
-      <img src="{{ asset('images/beach-contact.png') }}" alt="beach">
+    <img src="{{ asset('images/fisherman.png') }}" alt="fisherman">
   </div>
 </section>
 
