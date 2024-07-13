@@ -29,7 +29,8 @@ import {
 	TableToolbar,
 	TextTransformation,
 	Underline,
-	Undo
+	Undo,
+  HorizontalLine
 } from 'ckeditor5';
 
 const editorConfig = {
@@ -51,8 +52,9 @@ const editorConfig = {
 			'link',
 			'insertImageViaUrl',
 			'insertTable',
+      'horizontalLine',
 			'|',
-			'accessibilityHelp'
+			'accessibilityHelp',
 		],
 		shouldNotGroupWhenFull: false
 	},
@@ -86,7 +88,8 @@ const editorConfig = {
 		TableToolbar,
 		TextTransformation,
 		Underline,
-		Undo
+		Undo,
+    HorizontalLine
 	],
 	balloonToolbar: ['bold', 'italic', '|', 'link'],
 	heading: {

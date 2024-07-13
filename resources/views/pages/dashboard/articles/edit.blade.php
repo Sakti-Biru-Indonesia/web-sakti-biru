@@ -160,8 +160,10 @@
           {{ $message }}
           @enderror
         </span>
-        <textarea id="editor" name="content"
-          data-initial-value="{{$articleTranslation->content}}">{!! old('content') ?? $articleTranslation->content !!}</textarea>
+        <div class="editor-wrapper">
+          <textarea id="editor" name="content"
+            data-initial-value="{{$articleTranslation->content}}">{!! old('content') ?? $articleTranslation->content !!}</textarea>
+        </div>
       </div>
 
       <button type="submit" class="btn btn-primary">

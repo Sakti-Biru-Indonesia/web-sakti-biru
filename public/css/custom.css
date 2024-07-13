@@ -328,6 +328,14 @@ section.display-hero .graphics {
     justify-content: end;
   }
 }
+section.display-hero .graphics .hero-art {
+  max-width: 520px;
+}
+@media (max-width: 1024px) {
+  section.display-hero .graphics .hero-art {
+    max-width: 450px;
+  }
+}
 section.display-hero .graphics .sea {
   width: 495px;
   height: 277px;
@@ -1310,7 +1318,7 @@ section.explore-news .explore-news-list .explore-news-list-group .explore-news-g
 }
 
 section.details-article {
-  max-width: 736px;
+  max-width: 928px;
   padding-top: 48px;
   padding-bottom: 220px;
   row-gap: 2rem;
@@ -1356,6 +1364,7 @@ section.details-article .header .abstract p {
 }
 section.details-article .header .author-and-publish-date {
   padding: 0.5rem 1rem;
+  background: #eff1f7;
 }
 @media (max-width: 576px) {
   section.details-article .header .author-and-publish-date {
@@ -1364,6 +1373,7 @@ section.details-article .header .author-and-publish-date {
 }
 section.details-article .header .author-and-publish-date p {
   color: #80838d;
+  width: auto;
 }
 @media (max-width: 576px) {
   section.details-article .header .author-and-publish-date p {
@@ -1458,6 +1468,7 @@ section.details-article .content .content-body h5,
 section.details-article .content .content-body h6 {
   font-family: "Outfit", sans-serif;
   color: #0d6c8d;
+  margin-bottom: 1rem;
 }
 section.details-article .content .content-body p {
   font-family: "Open Sans", sans-serif;
@@ -1468,6 +1479,40 @@ section.details-article .content .content-body p {
   section.details-article .content .content-body p {
     font-size: 14px;
   }
+}
+section.details-article .content .content-body hr {
+  margin-block: 2rem;
+}
+section.details-article .content .content-body figure.image {
+  max-width: 100%;
+  margin-inline: auto;
+}
+section.details-article .content .content-body figure.image img {
+  max-width: 100%;
+  object-fit: cover;
+  height: auto;
+  border-radius: 8px;
+}
+section.details-article .content .content-body figure.image figcaption {
+  font-family: "Open Sans", sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  width: max-content;
+  margin-right: auto;
+  margin-top: 4px;
+  color: #80838d;
+}
+section.details-article .back-to-top {
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+  margin-top: 2rem;
+  border-top: 1px solid #dddde3;
+}
+section.details-article .back-to-top a {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  color: #0d6c8d;
 }
 
 section.product-list {

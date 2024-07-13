@@ -17,7 +17,7 @@
     </button>
   </div>
   <div class="graphics">
-    <img class="hero-art" src="{{ asset('images/hero-art.png') }}" alt="hero art">
+    <img class="hero-art" src="{{ asset('images/hero-art.jpg') }}" alt="hero art">
     {{-- <img class="bg-wave" src="{{ asset('images/background-wave.png') }}" alt="background-wave"> --}}
     {{-- <img class="sea" src="{{ asset('images/sea.jpg') }}" alt="sea">
     <img class="fishery" src="{{ asset('images/fishery.png') }}" alt="fishery">

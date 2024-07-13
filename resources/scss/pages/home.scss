@@ -79,6 +79,14 @@ section.display-hero {
     //   position: absolute;
     // }
 
+    .hero-art {
+      max-width: 520px;
+
+      @media (max-width: 1024px) {
+        max-width: 450px;
+      }
+    }
+
     .sea {
       width: 495px;
       height: 277px;

@@ -132,7 +132,9 @@
           {{ $message }}
           @enderror
         </span>
-        <textarea id="editor" name="content">{{ old('content') }}</textarea>
+        <div class="editor-wrapper">
+          <textarea id="editor" name="content">{{ old('content') }}</textarea>
+        </div>
       </div>
 
       <button type="submit" class="btn btn-primary">

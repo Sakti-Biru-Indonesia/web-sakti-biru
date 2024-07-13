@@ -13,4 +13,45 @@
     border-radius: 0.35rem;
     background-color: #fff;
   }
+
+  .editor-wrapper {
+    max-width: 736px;
+
+    p {
+      font-size: 1rem;
+      font-family: $font-open-sans;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: $font-outfit;
+      color: $primary-color;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    hr {
+      height: 1px;
+      background: #dddde3;
+      margin-block: 2rem;
+    }
+
+    img {
+      border-radius: 8px;
+    }
+
+    figcaption {
+      font-family: $font-open-sans;
+      font-size: 10px;
+      font-weight: 400;
+      width: max-content;
+      margin-right: auto;
+      margin-top: 4px;
+      color: #80838d;
+    }
+  }
 }

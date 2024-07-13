@@ -1,3 +1,17 @@
+.btn-wbi {
+  background-color: #dde6ee;
+  padding: 1rem 2rem;
+  border: none;
+  color: #0d6c8d;
+  font-weight: 500;
+  font-family: "Outfit", sans-serif;
+  font-size: 20px;
+}
+.btn-wbi:hover {
+  background-color: #0d6c8d;
+  color: white;
+}
+
 .dropdown {
   font-family: "Outfit", sans-serif;
   margin-top: 5px;
@@ -103,6 +117,41 @@
   border: 1px solid rgb(209, 211, 226);
   border-radius: 0.35rem;
   background-color: #fff;
+}
+.create-article-card .editor-wrapper {
+  max-width: 736px;
+}
+.create-article-card .editor-wrapper p {
+  font-size: 1rem;
+  font-family: "Open Sans", sans-serif;
+}
+.create-article-card .editor-wrapper h1,
+.create-article-card .editor-wrapper h2,
+.create-article-card .editor-wrapper h3,
+.create-article-card .editor-wrapper h4,
+.create-article-card .editor-wrapper h5,
+.create-article-card .editor-wrapper h6 {
+  font-family: "Outfit", sans-serif;
+  color: #0d6c8d;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+.create-article-card .editor-wrapper hr {
+  height: 1px;
+  background: #dddde3;
+  margin-block: 2rem;
+}
+.create-article-card .editor-wrapper img {
+  border-radius: 8px;
+}
+.create-article-card .editor-wrapper figcaption {
+  font-family: "Open Sans", sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  width: max-content;
+  margin-right: auto;
+  margin-top: 4px;
+  color: #80838d;
 }
 
 .profile-container {
