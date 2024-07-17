@@ -65,6 +65,11 @@ class ArticleController extends Controller
     return view('pages.blog-news.details', compact('article', 'articleContent', 'user'));
   }
 
+  public function list_articles_by_category()
+  {
+    return view('pages.blog-news.list-category');
+  }
+
   public function list_article_admin()
   {
     // get all articles from database with author name and category name
