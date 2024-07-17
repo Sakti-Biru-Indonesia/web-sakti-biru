@@ -31,6 +31,7 @@ Route::get('/contact', function () {
 })->name('contact');
 
 Route::get('/blog-news', [ArticleController::class, 'index'])->name('blog-news');
+Route::get('/blog-news/category', [ArticleController::class, 'list_articles_by_category'])->name('blog-news-category-list');
 Route::get('/blog-news/{slug}', [ArticleController::class, 'details'])->name('blog-news.details');
 
 Route::get('/products', [ProductController::class, 'list'])->name('products');
@@ -39,10 +40,6 @@ Route::get('/products/{slug}', [ProductController::class, 'details'])->name('pro
 Route::post('/send-message', [QuestionSenderController::class, 'store'])->name('send-message');
 
 // Dashboard
-// Route::get('/dashboard', function () {
-//   return view('pages.dashboard.home');
-// })->middleware([])->name('dashboard.home');
-
 Route::prefix('dashboard')->group(function () {
 
   Route::post('/logout', [UserController::class, 'logout'])->name('dashboard.logout');
