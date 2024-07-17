@@ -125,10 +125,19 @@ section.explore-news {
           font-family: $font-outfit;
           row-gap: 8px;
 
+          @media (max-width: 576px) {
+            flex-direction: column;
+          }
+
           img.explore-news-item-image {
             width: 100%;
             height: 176px;
             object-fit: cover;
+
+            @media (max-width: 576px) {
+              width: 100% !important;
+              height: 180px !important;
+            }
           }
 
           .explore-news-item-title {
@@ -158,6 +167,10 @@ section.explore-news {
               width: 64px;
               height: 64px;
             }
+          }
+
+          @media (max-width: 576px) {
+            flex-direction: column !important;
           }
 
           .explore-news-item-date-author {
