@@ -38,6 +38,7 @@
           </p>
           <button class="btn btn-primary mt-3 btn-update-profile" data-toggle="modal"
             data-target="#updateProfileModal">Update Profile</button>
+          <button class="btn btn-outline-primary mt-3 btn-change-password" data-toggle="modal" data-target="#changePasswordModal">Change Password</button>
         </div>
       </div>
     </div>
@@ -106,6 +107,45 @@
             @endif
           </div>
           <button type="submit" class="btn btn-primary">Save Profile</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{-- User Change Password Modal --}}
+<div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="changePasswordModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="changePasswordModalLabel">Change Password</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="{{ route('password.update') }}" method="POST">
+          @csrf
+          <div class="mb-3">
+            <label for="current_password" class="form-label">Current Password</label>
+            <input type="password" class="form-control" id="current_password" name="current_password" required>
+            @if ($errors->has('current_password'))
+            <span class="text-danger">{{ $errors->first('current_password') }}</span>
+            @endif
+          </div>
+          <div class="mb-3">
+            <label for="new_password" class="form-label">New Password</label>
+            <input type="password" class="form-control" id="new_password" name="new_password" required>
+            @if ($errors->has('new_password'))
+            <span class="text-danger">{{ $errors->first('new_password') }}</span>
+            @endif
+          </div>
+          <div class="mb-3">
+            <label for="new_password_confirmation" class="form-label">Confirm New Password</label>
+            <input type="password" class="form-control" id="new_password_confirmation" name="new_password_confirmation" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Change Password</button>
         </form>
       </div>
     </div>
