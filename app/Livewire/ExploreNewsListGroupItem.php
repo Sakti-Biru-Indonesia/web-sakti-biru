@@ -10,6 +10,8 @@ use Livewire\Component;
 
 class ExploreNewsListGroupItem extends Component
 {
+
+  public $category;
   public $title;
   public $categoryDescription;
   public $slug;
@@ -20,6 +22,7 @@ class ExploreNewsListGroupItem extends Component
 
   public function mount($category)
   {
+    $this->category = $category;
     $this->title = $category->name;
     $this->categoryDescription = $category->description;
 

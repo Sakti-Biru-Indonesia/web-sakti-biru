@@ -7,6 +7,7 @@ use App\Models\ArticleTranslation;
 use App\Models\Category;
 use App\Models\FeaturedArticle;
 use App\Models\User;
+use Carbon\Carbon;
 use Exception;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
@@ -67,7 +68,32 @@ class ArticleController extends Controller
 
   public function list_articles_by_category()
   {
-    return view('pages.blog-news.list-category');
+    $locale = App::getLocale();
+    $categorySlug = request('category');
+
+    $category = Category::where('slug', $categorySlug)->first();
+
+    // get all articles from database by category
+    // paginate 8
+    $articles = Article::where('category_id', $category->id)->paginate(10);
+    $articles->appends([
+      'category' => $categorySlug
+    ]);
+
+    $mappedArticles = $articles->map(function ($article) use ($locale) {
+      $articleTranslation = $article->articleTranslation->where('locale', $locale)->first();
+      return [
+        'id' => $article->id,
+        'title' => $articleTranslation->title,
+        'slug' => $articleTranslation->slug,
+        'publish_date' => Carbon::parse($article->published_at)->format('F j, Y'),
+        'sub_headline' => substr($articleTranslation->sub_headline, 0, 75) . '...',
+        'image_banner_url' => str_replace('public', 'storage', $article->image_banner_url),
+        'author' => $article->user->name
+      ];
+    });
+
+    return view('pages.blog-news.list-category', compact('category', 'articles', 'mappedArticles'));
   }
 
   public function list_article_admin()

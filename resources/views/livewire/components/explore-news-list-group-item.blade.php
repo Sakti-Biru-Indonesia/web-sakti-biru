@@ -82,7 +82,7 @@
     </div>
 
     {{-- Explore News Group Footer --}}
-    @if ($articles->count() > 6)
+    {{-- @if ($articles->count() > 6)
 
     <div class="explore-news-group-footer">
       <a href="#"
@@ -90,7 +90,13 @@
         View All <i class="fas fa-chevron-down"></i>
       </a>
     </div>
-    @endif
+    @endif --}}
+    <div class="explore-news-group-footer">
+      <a href="{{route('blog-news-category-list', ['category' => $category->slug])}}"
+        class="explore-news-group-footer-link font-outfit font-medium text-center d-flex justify-content-center align-items-center">
+        View All <i class="fas fa-chevron-down"></i>
+      </a>
+    </div>
 
     @else
 
