@@ -62,23 +62,25 @@ class UserProfileController extends Controller
     }
   }
 
-  public function showChangePassword(){
+  public function showChangePassword()
+  {
     return view('pages.dashboard.user-profile.create');
   }
 
-  public function changePassword(Request $request){
+  public function changePassword(Request $request)
+  {
     $validator = Validator::make($request->all(), [
       'current_password' => 'required',
       'new_password' => 'required|min:6|confirmed',
     ]);
 
-    if($validator->fails()){
+    if ($validator->fails()) {
       return redirect()->back()->withErrors($validator);
     }
 
-    $user = Auth::user();
+    $user = User::where('id', Auth::id())->first();
 
-    if(!Hash::check($request->current_password, $user->password)){
+    if (!Hash::check($request->current_password, $user->password)) {
       return redirect()->back()->withErrors(['current_password' => 'Kata sandi saat ini tidak sesuai.']);
     }
 
