@@ -85,4 +85,6 @@ class UserController extends Controller
       return redirect()->back()->with('error', 'Failed to create user')->withInput();
     }
   }
+
+
 }

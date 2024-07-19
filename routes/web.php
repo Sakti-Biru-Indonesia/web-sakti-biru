@@ -61,6 +61,9 @@ Route::prefix('dashboard')->group(function () {
 
     Route::get('user_profiles/create', [UserProfileController::class, 'create'])->name('user_profiles.create');
     Route::post('user_profiles', [UserProfileController::class, 'store'])->name('user_profiles.store');
+
+    Route::get('change-password', [UserProfileController::class, 'showChangePasswordForm'])->name('password.change');
+    Route::post('change-password', [UserProfileController::class, 'changePassword'])->name('password.update');
   });
 
   Route::middleware(['auth', 'just_admin'])->group(function () {

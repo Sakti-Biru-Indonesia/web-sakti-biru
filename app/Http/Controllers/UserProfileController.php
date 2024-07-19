@@ -6,7 +6,9 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\UserProfile;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class UserProfileController extends Controller
 {
@@ -58,5 +60,31 @@ class UserProfileController extends Controller
     } catch (\Exception $e) {
       return redirect()->back()->with('error', $e->getMessage());
     }
+  }
+
+  public function showChangePassword(){
+    return view('pages.dashboard.user-profile.create');
+  }
+
+  public function changePassword(Request $request){
+    $validator = Validator::make($request->all(), [
+      'current_password' => 'required',
+      'new_password' => 'required|min:6|confirmed',
+    ]);
+
+    if($validator->fails()){
+      return redirect()->back()->withErrors($validator);
+    }
+
+    $user = Auth::user();
+
+    if(!Hash::check($request->current_password, $user->password)){
+      return redirect()->back()->withErrors(['current_password' => 'Kata sandi saat ini tidak sesuai.']);
+    }
+
+    $user->password = Hash::make($request->new_password);
+    $user->save();
+
+    return redirect()->back()->with('success', 'Kata sandi telah diubah!');
   }
 }
