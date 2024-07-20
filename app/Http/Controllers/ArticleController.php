@@ -75,7 +75,7 @@ class ArticleController extends Controller
 
     // get all articles from database by category
     // paginate 8
-    $articles = Article::where('category_id', $category->id)->paginate(10);
+    $articles = Article::where('is_published', true)->where('category_id', $category->id)->paginate(10);
     $articles->appends([
       'category' => $categorySlug
     ]);

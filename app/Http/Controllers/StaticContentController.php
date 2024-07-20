@@ -13,7 +13,7 @@ class StaticContentController extends Controller
     // Take 3 newest articles
 
     $locale = App::getLocale();
-    $articles = Article::orderBy('created_at', 'desc')->take(3)->get();
+    $articles = Article::where('is_published', true)->orderBy('created_at', 'desc')->take(3)->get();
 
     $articles = $articles->map(function ($article) use ($locale) {
       $articleTranslation = $article->articleTranslation->where('locale', $locale)->first();
