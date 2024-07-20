@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-Details
+{{ $articleContent->title }} - Sakti Biru Indonesia
 @endsection
 
 @section('content')
@@ -63,7 +63,7 @@ Details
       {{-- <img class="author-picture rounded-circle" src="{{ asset('images/author-placeholder.png') }}" alt="author">
       --}}
       <img class="author-picture rounded-circle"
-        src="{{ $user->profile->profile_image ? asset('storage/' . $user->profile->profile_image) : asset('images/author-placeholder.png') }}"
+        src="{{ $user->profile->image ? asset('storage/' . $user->profile->image) : asset('images/author-placeholder.png') }}"
         alt="author">
 
       {{-- Author Info --}}

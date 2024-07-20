@@ -60,7 +60,7 @@ Blog and News
             </span>
           </div>
           <img class="rounded-circle"
-            src="{{ asset($user->profile->profile_image ? str_replace('storage','public',$user->profile->profile_image) : 'images/author-placeholder.png') }}"
+            src="{{ asset($user->profile->image ? str_replace('public','storage','storage/'.$user->profile->image) : 'images/author-placeholder.png') }}"
             alt="author">
         </a>
         @endforeach
