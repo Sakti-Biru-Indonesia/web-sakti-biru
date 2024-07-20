@@ -18,10 +18,10 @@
           Sakti Biru Indonesia
         </h2>
         <div class="services-list d-flex flex-column mt-4">
-          <a href="#">Input and Technology Supplier</a>
-          <a href="#">Farm Management</a>
-          <a href="#">Consultation</a>
-          <a href="#">Cold Storage and Processing</a>
+          <a href="{{route('products')}}">Input and Technology Supplier</a>
+          <a href="{{route('home', '#services')}}">Farm Management</a>
+          <a href="{{route('home', '#services')}}">Consultation</a>
+          <a href="{{route('home', '#services')}}">Cold Storage and Processing</a>
         </div>
       </div>
 
@@ -29,11 +29,14 @@
       <div class="contact">
         <h2 class="">Our Contact</h2>
         <p>
-          8561 Kozey Union Lake Josechester 20830 United States
+          <b>SBI Office</b><br>
+          Ruko City Park J12<br>
+          Jl. Kapuk Kamal Raya<br>
+          Jakarta, Indonesia
         </p>
         <div class="telp d-flex align-items-center gap-2 mt-2">
           <p>
-            (300) 502-2905 x4342
+            +62 819-1212-5758
           </p>
           <i class="fas fa-phone"></i>
         </div>
