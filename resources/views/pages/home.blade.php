@@ -12,9 +12,9 @@
     {{-- <p>
       {{ __('messages.welcome') }}
     </p> --}}
-    <button class="btn btn-primary rounded-pill py-3 px-4">
+    <a href="{{route('contact')}}" class="btn btn-wbi btn-primary rounded-pill py-3 px-4">
       Talk to Us
-    </button>
+    </a>
   </div>
   <div class="graphics">
     <img class="hero-art" src="{{ asset('images/hero-art.jpg') }}" alt="hero art">
