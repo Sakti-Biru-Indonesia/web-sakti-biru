@@ -579,12 +579,17 @@ section.testimonies .trusted-brands .companies {
   }
 }
 section.testimonies .trusted-brands .companies img {
-  height: 32px;
+  height: 9rem;
   object-fit: contain;
+}
+@media (max-width: 992px) {
+  section.testimonies .trusted-brands .companies img {
+    height: 7rem;
+  }
 }
 @media (max-width: 576px) {
   section.testimonies .trusted-brands .companies img {
-    height: 20px;
+    height: 5rem;
   }
 }
 

@@ -328,11 +328,15 @@ section.testimonies {
       }
 
       img {
-        height: 32px;
+        height: 9rem;
         object-fit: contain;
 
+        @media (max-width: 992px) {
+          height: 7rem;
+        }
+
         @media (max-width: 576px) {
-          height: 20px;
+          height: 5rem;
         }
       }
     }

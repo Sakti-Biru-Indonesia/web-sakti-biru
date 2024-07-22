@@ -68,10 +68,10 @@
       Trusted by
     </p>
     <div class="companies d-flex justify-content-center align-items-center flex-wrap">
-      <img src="{{ asset('images/brands/amazon.svg') }}" alt="amazon">
-      <img src="{{ asset('images/brands/google.svg') }}" alt="google">
-      <img src="{{ asset('images/brands/netflix.svg') }}" alt="netflix">
-      <img src="{{ asset('images/brands/tokopedia.svg') }}" alt="tokopedia">
+      <img src="{{ asset('images/brands/all-fish-news.png') }}" alt="all-fish-news">
+      <img src="{{ asset('images/brands/biomed.png') }}" alt="biomed">
+      <img src="{{ asset('images/brands/mitra-SBI.png') }}" alt="mitra-SBI">
+      <img src="{{ asset('images/brands/produk-SBI.png') }}" alt="produk-SBI">
     </div>
   </div>
 </section>
