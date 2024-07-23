@@ -34,5 +34,11 @@ class QuestionSenderController extends Controller
         return view('pages.dashboard.question.index', compact('messages'));
     }
 
+    public function show($id){
+      $message = QuestionSender::findOrFail($id);
+      // return response()->json($message);
+      return view('pages.dashboard.question.show', compact('message'));
+    }
+
 }
 

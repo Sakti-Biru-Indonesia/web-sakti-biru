@@ -13,6 +13,7 @@
                             <th>Name</th>
                             <th>Phone Number</th>
                             <th>Message</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -20,7 +21,10 @@
                             <tr>
                                 <td>{{ $message->name }}</td>
                                 <td>{{ $message->phone_number }}</td>
-                                <td>{{ $message->message }}</td>
+                                <td>{{ $message->excerpt }}</td>
+                                <td>
+                                  <a href="{{ route('dashboard.show', $message->id) }}" class="btn btn-info"><i class="fa-solid fa-eye"></i></a>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

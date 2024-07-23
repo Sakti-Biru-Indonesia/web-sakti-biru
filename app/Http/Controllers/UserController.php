@@ -86,5 +86,28 @@ class UserController extends Controller
     }
   }
 
+  public function index(){
+    $users = User::all();
+    return view('pages.dashboard.user.index', compact('users'));
+  }
+
+  public function edit($id){
+    $user = User::find($id);
+    return view('pages.dashboard.user.edit', compact('user'));
+  }
+
+  public function update(Request $request, $id){
+    $this->validate($request, [
+      'name' => 'required',
+      'email' => 'required|email|unique:users,email,' . $id,
+      'role' => 'required|in:ADMIN,WRITER',
+    ]);
+
+    $user = User::findOrFail($id);
+    $user->update($request->only('name', 'email', 'role'));
+
+
+    return redirect()->route('users.index')->with('success'. 'User updated succesfully!');
+  }
 
 }
