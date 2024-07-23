@@ -75,5 +75,9 @@ Route::prefix('dashboard')->group(function () {
     Route::resource('/categories', CategoryController::class);
     Route::get('/messages', [QuestionSenderController::class, 'index'])->name('dashboard.messages');
     Route::resource('/featured-articles', FeaturedArticleController::class);
+
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
+    Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+    Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
   });
 });
