@@ -73,7 +73,10 @@ Route::prefix('dashboard')->group(function () {
     Route::post('/create/user', [UserController::class, 'create_user'])->name('dashboard.admin-create.user');
     Route::resource('/products', ProductController::class);
     Route::resource('/categories', CategoryController::class);
+
     Route::get('/messages', [QuestionSenderController::class, 'index'])->name('dashboard.messages');
+    Route::get('/messages/{id}', [QuestionSenderController::class, 'show'])->name('dashboard.show');
+
     Route::resource('/featured-articles', FeaturedArticleController::class);
 
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
