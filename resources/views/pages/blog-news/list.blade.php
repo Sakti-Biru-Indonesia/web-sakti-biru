@@ -17,9 +17,9 @@ Blog and News
     <div class="explore-news-list col">
 
       {{-- Search Input Form --}}
-      <form action="#" method="get" class="search-input-form">
+      <form action="{{ route('blog-news-search') }}" method="get" class="search-input-form">
         <div class="input-group position-relative">
-          <input type="text" class="search-input form-control rounded-pill"
+          <input type="text" class="search-input form-control rounded-pill" name="query"
             placeholder="Find news, articles, or blog posts.." aria-label="search-input" aria-describedby="search">
           <button class="search-btn btn position-absolute" type="submit" id="search">
             <i class="bi bi-search"></i>

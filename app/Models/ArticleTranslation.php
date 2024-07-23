@@ -28,6 +28,11 @@ class ArticleTranslation extends Model
     return $this->belongsTo(Article::class, 'article_id', 'id');
   }
 
+  public function metaData()
+  {
+    return $this->belongsTo(Article::class, 'article_id', 'id');
+  }
+
 
   public function insertArticleTranslation($article_id, $locale, $title, $sub_headline, $content)
   {

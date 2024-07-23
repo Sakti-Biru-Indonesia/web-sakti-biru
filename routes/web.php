@@ -31,6 +31,7 @@ Route::get('/contact', function () {
 })->name('contact');
 
 Route::get('/blog-news', [ArticleController::class, 'index'])->name('blog-news');
+Route::get('/blog-news/search', [ArticleController::class, 'search'])->name('blog-news-search');
 Route::get('/blog-news/category', [ArticleController::class, 'list_articles_by_category'])->name('blog-news-category-list');
 Route::get('/blog-news/{slug}', [ArticleController::class, 'details'])->name('blog-news.details');
 

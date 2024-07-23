@@ -105,30 +105,31 @@ class ArticleController extends Controller
     }
 
     $locale = App::getLocale();
-    $articles = ArticleTranslation::where('title', 'like', '%' . $query . '%')
-      ->orWhere('sub_headline', 'like', '%' . $query . '%')
-      ->orWhere('content', 'like', '%' . $query . '%')
+
+    // just get articles from database where same locale
+    $articles = ArticleTranslation::where('locale', $locale)
+      ->where(function ($q) use ($query) {
+        $q->where('title', 'like', '%' . $query . '%')
+          ->orWhere('sub_headline', 'like', '%' . $query . '%')
+          ->orWhere('content', 'like', '%' . $query . '%');
+      })
       ->paginate(10);
 
-    // dd($articles);
 
     $articles->appends([
       'query' => $query
     ]);
 
-    $mappedArticles = $articles->map(function ($article) use ($locale) {
-      $article = Article::where('id', $article->article_id)
-        ->where('is_published', true)
-        ->first();
-      $articleTranslation = $article->articleTranslation->where('locale', $locale)->first();
+    $mappedArticles = $articles->map(function ($article) {
       return [
-        'id' => $article->id,
-        'title' => $articleTranslation->title,
-        'slug' => $articleTranslation->slug,
-        'publish_date' => Carbon::parse($article->published_at)->format('F j, Y'),
-        'sub_headline' => substr($articleTranslation->sub_headline, 0, 75) . '...',
-        'image_banner_url' => str_replace('public', 'storage', $article->image_banner_url),
-        'author' => $article->user->name
+        'id' => $article->metaData->id,
+        'language' => $article->locale,
+        'title' => $article->title,
+        'slug' => $article->slug,
+        'publish_date' => Carbon::parse($article->article->published_at)->format('F j, Y'),
+        'sub_headline' => substr($article->sub_headline, 0, 75) . '...',
+        'image_banner_url' => str_replace('public', 'storage', $article->metaData->image_banner_url),
+        'author' => $article->article->user->name
       ];
     });
 
