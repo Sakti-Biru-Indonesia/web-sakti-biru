@@ -105,12 +105,12 @@ class Article extends Model
       $article = Article::find($id);
 
       // check if current user is the author of the article
-      if ($article->user_id !== Auth::user()->id) {
-        return [
-          'status' => false,
-          'message' => 'Cannot edit this article, you are not the author',
-        ];
-      }
+      // if ($article->user_id !== Auth::user()->id) {
+      //   return [
+      //     'status' => false,
+      //     'message' => 'Cannot edit this article, you are not the author model',
+      //   ];
+      // }
 
       $article->update([
         'category_id' => $category_id,

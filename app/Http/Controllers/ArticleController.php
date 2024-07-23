@@ -96,6 +96,45 @@ class ArticleController extends Controller
     return view('pages.blog-news.list-category', compact('category', 'articles', 'mappedArticles'));
   }
 
+  public function search()
+  {
+    $query = request('query');
+
+    if (!$query) {
+      return redirect()->route('blog-news');
+    }
+
+    $locale = App::getLocale();
+    $articles = ArticleTranslation::where('title', 'like', '%' . $query . '%')
+      ->orWhere('sub_headline', 'like', '%' . $query . '%')
+      ->orWhere('content', 'like', '%' . $query . '%')
+      ->paginate(10);
+
+    // dd($articles);
+
+    $articles->appends([
+      'query' => $query
+    ]);
+
+    $mappedArticles = $articles->map(function ($article) use ($locale) {
+      $article = Article::where('id', $article->article_id)
+        ->where('is_published', true)
+        ->first();
+      $articleTranslation = $article->articleTranslation->where('locale', $locale)->first();
+      return [
+        'id' => $article->id,
+        'title' => $articleTranslation->title,
+        'slug' => $articleTranslation->slug,
+        'publish_date' => Carbon::parse($article->published_at)->format('F j, Y'),
+        'sub_headline' => substr($articleTranslation->sub_headline, 0, 75) . '...',
+        'image_banner_url' => str_replace('public', 'storage', $article->image_banner_url),
+        'author' => $article->user->name
+      ];
+    });
+
+    return view('pages.blog-news.search', compact('articles', 'query', 'mappedArticles'));
+  }
+
   public function list_article_admin()
   {
     // get all articles from database with author name and category name
@@ -186,8 +225,13 @@ class ArticleController extends Controller
     }
 
     // check if current user is the author of the article
-    if ($article->user_id !== Auth::user()->id) {
-      return back()->with('error', 'You are not the author of this article');
+    // if ($article->user_id !== Auth::user()->id) {
+    //   return back()->with('error', 'You are not the author of this article');
+    // }
+    if (($article->user_id !== Auth::user()->id)) {
+      if (Auth::user()->role !== 'ADMIN') {
+        return back()->with('error', 'Cannot edit this article, you are not the author');
+      }
     }
 
     DB::beginTransaction();
@@ -225,11 +269,11 @@ class ArticleController extends Controller
     }
 
     // if user is the author of the article and is not admin
-    if (($article->user_id !== Auth::user()->id)) {
-      if (Auth::user()->role !== 'ADMIN') {
-        return back()->with('error', 'Cannot edit this article, you are not the author');
-      }
-    }
+    // if (($article->user_id !== Auth::user()->id)) {
+    //   if (Auth::user()->role !== 'ADMIN') {
+    //     return back()->with('error', 'Cannot edit this article, you are not the author');
+    //   }
+    // }
 
     // if article translation with current locale is not found, just use other article translation with other locale
     $articleTranslation = $article->articleTranslation->where('locale', $locale)->where('article_id', $id)->first();
@@ -282,8 +326,10 @@ class ArticleController extends Controller
       }
 
       // check if current user is the author of the article
-      if ($article->user_id !== Auth::user()->id) {
-        throw new Exception('Cannot edit this article, you are not the author');
+      if (($article->user_id !== Auth::user()->id)) {
+        if (Auth::user()->role !== 'ADMIN') {
+          return back()->with('error', 'Cannot edit this article, you are not the author');
+        }
       }
 
       $this->check_available_locale();
