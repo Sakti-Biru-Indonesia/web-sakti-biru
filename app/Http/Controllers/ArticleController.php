@@ -99,41 +99,54 @@ class ArticleController extends Controller
   public function search()
   {
     $query = request('query');
+    $categoryId = request('category_id');
 
     if (!$query) {
       return redirect()->route('blog-news');
     }
 
+    $category = null;
+    if ($categoryId) {
+      $category = Category::find($categoryId);
+    }
+
     $locale = App::getLocale();
 
     // just get articles from database where same locale
-    $articles = ArticleTranslation::where('locale', $locale)
-      ->where(function ($q) use ($query) {
-        $q->where('title', 'like', '%' . $query . '%')
-          ->orWhere('sub_headline', 'like', '%' . $query . '%')
-          ->orWhere('content', 'like', '%' . $query . '%');
+    $articles = Article::whereHas('articleTranslation', function ($q) use ($locale, $query) {
+      $q->where('locale', $locale)
+        ->where(function ($q) use ($query) {
+          $q->where('title', 'like', '%' . $query . '%')
+            ->orWhere('sub_headline', 'like', '%' . $query . '%')
+            ->orWhere('content', 'like', '%' . $query . '%');
+        });
+    })
+      ->where('is_published', true)
+      ->when($categoryId, function ($q) use ($categoryId) {
+        $q->where('category_id', $categoryId);
       })
       ->paginate(10);
-
 
     $articles->appends([
       'query' => $query
     ]);
 
     $mappedArticles = $articles->map(function ($article) {
+      $translation = $article->articleTranslation->where('locale', App::getLocale())->first();
       return [
-        'id' => $article->metaData->id,
-        'language' => $article->locale,
-        'title' => $article->title,
-        'slug' => $article->slug,
-        'publish_date' => Carbon::parse($article->article->published_at)->format('F j, Y'),
-        'sub_headline' => substr($article->sub_headline, 0, 75) . '...',
-        'image_banner_url' => str_replace('public', 'storage', $article->metaData->image_banner_url),
-        'author' => $article->article->user->name
+        'id' => $article->id,
+        'category' => $article->category->name,
+        'language' => $translation->locale,
+        'title' => $translation->title,
+        'slug' => $translation->slug,
+        'publish_date' => Carbon::parse($article->published_at)->format('F j, Y'),
+        'sub_headline' => substr($translation->sub_headline, 0, 75) . '...',
+        'image_banner_url' => str_replace('public', 'storage', $article->image_banner_url),
+        'author' => $article->user->name
       ];
     });
 
-    return view('pages.blog-news.search', compact('articles', 'query', 'mappedArticles'));
+    return view('pages.blog-news.search', compact('articles', 'query', 'mappedArticles', 'category'));
   }
 
   public function list_article_admin()

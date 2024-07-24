@@ -9,6 +9,9 @@ Search Articles - Sakti Biru
 
   <form action="{{ route('blog-news-search') }}" method="get" class="search-input-form">
     <div class="input-group position-relative">
+      @if ($category)
+      <input type="hidden" name="category_id" value="{{ $category->id }}">
+      @endif
       <input type="text" class="search-input form-control rounded-pill" name="query" value="{{ $query }}"
         placeholder="Find news, articles, or blog posts.." aria-label="search-input" aria-describedby="search">
       <button class="search-btn btn position-absolute" type="submit" id="search">
@@ -19,7 +22,7 @@ Search Articles - Sakti Biru
 
   <div class="list-article-by-category-header d-flex align-items-center">
     <h2 class="font-outfit font-medium">
-      Results for "{{ $query }}"
+      Results for "{{ $query }}" {{$category ? 'in ' . $category->name : ''}}
     </h2>
   </div>
 
