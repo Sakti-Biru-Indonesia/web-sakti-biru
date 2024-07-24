@@ -248,6 +248,38 @@ footer .container .copyright .other-list p {
   border-radius: 8px;
 }
 
+nav.custom-style-pagination-bootstrap-5 {
+  margin-top: 3.75rem;
+}
+nav.custom-style-pagination-bootstrap-5 ul.pagination li a,
+nav.custom-style-pagination-bootstrap-5 ul.pagination li span {
+  border: none;
+}
+nav.custom-style-pagination-bootstrap-5 ul.pagination li.prev > span,
+nav.custom-style-pagination-bootstrap-5 ul.pagination li.next > span {
+  color: #c6c7ce;
+}
+nav.custom-style-pagination-bootstrap-5 ul.pagination li.prev > a,
+nav.custom-style-pagination-bootstrap-5 ul.pagination li.next > a {
+  color: #0d6c8d;
+}
+nav.custom-style-pagination-bootstrap-5 ul.pagination li.prev > a,
+nav.custom-style-pagination-bootstrap-5 ul.pagination li.next > a,
+nav.custom-style-pagination-bootstrap-5 ul.pagination li.prev > span,
+nav.custom-style-pagination-bootstrap-5 ul.pagination li.next > span {
+  font-size: 1rem;
+  padding-block: 0.5rem;
+}
+nav.custom-style-pagination-bootstrap-5 ul.pagination li.current-page span {
+  color: #0d6c8d;
+  font-weight: 700;
+  background-color: transparent;
+}
+nav.custom-style-pagination-bootstrap-5 ul.pagination li.pages a {
+  color: #c6c7ce;
+  font-weight: 700;
+}
+
 section.display-hero {
   font-family: "Outfit", sans-serif;
   display: flex;

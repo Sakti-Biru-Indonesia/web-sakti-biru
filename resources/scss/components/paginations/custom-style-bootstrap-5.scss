@@ -1,0 +1,47 @@
+nav.custom-style-pagination-bootstrap-5 {
+  margin-top: 3.75rem;
+
+  ul.pagination {
+    li {
+      a,
+      span {
+        border: none;
+      }
+
+      // span.ne
+    }
+
+    li.prev > span,
+    li.next > span {
+      color: #c6c7ce;
+    }
+
+    li.prev > a,
+    li.next > a {
+      color: $primary-color;
+    }
+
+    li.prev > a,
+    li.next > a,
+    li.prev > span,
+    li.next > span {
+      font-size: 1rem;
+      padding-block: 0.5rem;
+    }
+
+    li.current-page {
+      span {
+        color: $primary-color;
+        font-weight: 700;
+        background-color: transparent;
+      }
+    }
+
+    li.pages {
+      a {
+        color: #c6c7ce;
+        font-weight: 700;
+      }
+    }
+  }
+}
