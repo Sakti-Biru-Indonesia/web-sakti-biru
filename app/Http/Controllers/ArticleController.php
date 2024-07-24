@@ -242,7 +242,7 @@ class ArticleController extends Controller
     // if ($article->user_id !== Auth::user()->id) {
     //   return back()->with('error', 'You are not the author of this article');
     // }
-    if (($article->user_id !== Auth::user()->id)) {
+    if (((int)$article->user_id !== Auth::user()->id)) {
       if (Auth::user()->role !== 'ADMIN') {
         return back()->with('error', 'Cannot edit this article, you are not the author');
       }
@@ -340,7 +340,7 @@ class ArticleController extends Controller
       }
 
       // check if current user is the author of the article
-      if (($article->user_id !== Auth::user()->id)) {
+      if (((int)$article->user_id !== Auth::user()->id)) {
         if (Auth::user()->role !== 'ADMIN') {
           return back()->with('error', 'Cannot edit this article, you are not the author');
         }
