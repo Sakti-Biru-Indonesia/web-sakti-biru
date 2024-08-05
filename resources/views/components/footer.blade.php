@@ -7,8 +7,8 @@
       <div class="simple-description">
         <img src="{{ asset('images/SBI-logo.png') }}" alt="logo-SBI">
         <p class="m-0 mt-3">
-          Early stage startup bidang akuakultur/perikanan dengan peran sebagai enabler atau end-to-end di industri
-          udang.
+          SBI is a one-stop solution company in the shrimp aquaculture industry, member of Kedaulatan Pangan Pertiwi
+          (KPP)
         </p>
       </div>
 

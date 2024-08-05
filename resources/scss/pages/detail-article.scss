@@ -170,17 +170,28 @@ section.details-article {
       h6 {
         font-family: $font-outfit;
         color: $primary-color;
-        margin-bottom: 1rem;
+        margin-block: 1rem;
       }
 
       p {
         font-family: $font-open-sans;
         font-size: 1rem;
         color: $secondary-color;
+        margin-bottom: 1rem;
 
         @media (max-width: 576px) {
           font-size: 14px;
         }
+      }
+
+      a {
+        color: $primary-color;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+
+        font-weight: 500;
       }
 
       hr {

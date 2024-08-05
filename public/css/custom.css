@@ -1614,17 +1614,26 @@ section.details-article .content .content-body h5,
 section.details-article .content .content-body h6 {
   font-family: "Outfit", sans-serif;
   color: #0d6c8d;
-  margin-bottom: 1rem;
+  margin-block: 1rem;
 }
 section.details-article .content .content-body p {
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   color: #80838d;
+  margin-bottom: 1rem;
 }
 @media (max-width: 576px) {
   section.details-article .content .content-body p {
     font-size: 14px;
   }
+}
+section.details-article .content .content-body a {
+  color: #0d6c8d;
+  text-decoration: none;
+  font-weight: 500;
+}
+section.details-article .content .content-body a:hover {
+  text-decoration: underline;
 }
 section.details-article .content .content-body hr {
   margin-block: 2rem;

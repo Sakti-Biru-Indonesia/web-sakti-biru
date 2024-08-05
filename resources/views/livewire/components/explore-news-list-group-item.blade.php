@@ -41,8 +41,8 @@
         @foreach ($asideArticles as $asideArticle)
         <a href="{{route('blog-news.details', $asideArticle['slug'])}}"
           class="explore-news-item d-flex align-items-center">
-          <img class="explore-news-item-image rounded " src="{{ asset('images/blog-thumbnail-template.png') }}"
-            alt="explore-news">
+          <img class="explore-news-item-image rounded " src="{{ asset($asideArticle['image_banner_url']) }}"
+            alt="{{$asideArticle['title']}}">
           <div class="explore-news-item">
             <p class="explore-news-item-title">
               {{$asideArticle['title']}}
@@ -65,7 +65,7 @@
         <a href="{{route('blog-news.details', $restArticle['slug'])}}"
           class="explore-news-item d-flex align-items-center">
           <img class="explore-news-item-image rounded " src="{{ asset($restArticle['image_banner_url']) }}"
-            alt="explore-news">
+            alt="{{$restArticle['title']}}">
           <div class="explore-news-item">
             <p class="explore-news-item-title">
               {{$restArticle['title']}}

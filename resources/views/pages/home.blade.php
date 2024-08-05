@@ -119,8 +119,8 @@
       <div class="image-description col-12 col-md-12 col-lg-4 d-flex flex-column align-items-center">
         <img src="{{ asset('images/fish-pool.png') }}" alt="fish-pool">
         <p class="font-open-sans fw-normal text-center">
-          Lorem ipsum dolor sit amet consectetur. Pretium massa libero habitant amet pretium morbi. Et vestibulum id at
-          faucibus felis.
+          We provide everything from cutting-edge technology to professional consultation optimizing your productivity
+          and profitability.
         </p>
       </div>
     </div>
