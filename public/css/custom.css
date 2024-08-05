@@ -1641,6 +1641,7 @@ section.details-article .content .content-body hr {
 section.details-article .content .content-body figure.image {
   max-width: 100%;
   margin-inline: auto;
+  margin-bottom: 1rem;
 }
 section.details-article .content .content-body figure.image img {
   max-width: 100%;
