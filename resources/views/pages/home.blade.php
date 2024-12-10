@@ -193,7 +193,7 @@
 </section>
 
 {{-- Testimonial --}}
-<section class="testimonial mx-auto d-flex flex-column">
+{{-- <section class="testimonial mx-auto d-flex flex-column">
   <div class="testimonial-item d-flex justify-content-between align-items-center">
     <div class="text-quote d-flex">
       <i class="bi bi-quote"></i>
@@ -227,7 +227,7 @@
       <img src="{{ asset('images/user-2.png') }}" alt="testimonial">
     </div>
   </div>
-</section>
+</section> --}}
 
 {{-- Contact --}}
 
