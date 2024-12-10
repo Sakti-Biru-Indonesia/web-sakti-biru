@@ -31,6 +31,9 @@
 
   {{-- Font Awesome --}}
   <script src="https://kit.fontawesome.com/36bc692e11.js" crossorigin="anonymous"></script>
+
+  {{-- Google Analytics --}}
+  @include('components.google-analytics')
 </head>
 
 <body>
