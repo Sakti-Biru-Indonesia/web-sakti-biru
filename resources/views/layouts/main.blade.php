@@ -34,6 +34,11 @@
 
   {{-- Google Analytics --}}
   @include('components.google-analytics')
+
+  {{-- Meta tag --}}
+  @yield('meta')
+  <meta name="twitter:card" content="summary">
+
 </head>
 
 <body>

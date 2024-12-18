@@ -4,6 +4,29 @@
 {{ $articleContent->title }} - Sakti Biru Indonesia
 @endsection
 
+@section('meta')
+
+{{-- Meta --}}
+<meta name="title" content="{{ $articleContent->meta_title ?? $articleContent->title }}">
+<meta name="description" content="{{ $articleContent->meta_description ?? $articleContent->sub_headline }}">
+<meta name="keywords" content="{{ $articleContent->meta_keywords }}">
+
+{{-- Open Graph --}}
+<meta property="og:title" content="{{  $articleContent->meta_title ?? $articleContent->title }}">
+<meta property="og:description" content="{{ $articleContent->meta_description ?? $articleContent->sub_headline }}">
+<meta property="og:image"
+  content="{{  env('APP_URL') . asset(str_replace('public', 'storage',($article->image_banner_url))) }}">
+
+{{-- Twitter Card --}}
+<meta name="twitter:description" content="{{ $articleContent->meta_description ?? $articleContent->sub_headline }}">
+<meta name="twitter:image"
+  content="{{ env('APP_URL') . asset(str_replace('public', 'storage',($article->image_banner_url))) }}">
+
+{{-- Robots --}}
+<meta name="robots" content="index,follow">
+@endsection
+
+
 @section('content')
 <section class="details-article d-flex flex-column mx-auto">
   <div class="header d-flex flex-column font-open-sans align-items-start">
