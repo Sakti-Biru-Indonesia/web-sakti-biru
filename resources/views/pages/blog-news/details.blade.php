@@ -7,18 +7,18 @@
 @section('meta')
 
 {{-- Meta --}}
-<meta name="title" content="{{ $articleContent->meta_title ?? $articleContent->title }}">
-<meta name="description" content="{{ $articleContent->meta_description ?? $articleContent->sub_headline }}">
-<meta name="keywords" content="{{ $articleContent->meta_keywords }}">
+<meta name="title" content="{{ $articleMetaContent->title ?? $articleContent->title }}">
+<meta name="description" content="{{ $articleMetaContent->description ?? $articleContent->sub_headline }}">
+<meta name="keywords" content="{{ $articleMetaContent->keywords ?? '' }}">
 
 {{-- Open Graph --}}
-<meta property="og:title" content="{{  $articleContent->meta_title ?? $articleContent->title }}">
-<meta property="og:description" content="{{ $articleContent->meta_description ?? $articleContent->sub_headline }}">
+<meta property="og:title" content="{{  $articleMetaContent->title ?? $articleContent->title }}">
+<meta property="og:description" content="{{ $articleMetaContent->description ?? $articleContent->sub_headline }}">
 <meta property="og:image"
   content="{{  env('APP_URL') . asset(str_replace('public', 'storage',($article->image_banner_url))) }}">
 
 {{-- Twitter Card --}}
-<meta name="twitter:description" content="{{ $articleContent->meta_description ?? $articleContent->sub_headline }}">
+<meta name="twitter:description" content="{{ $articleMetaContent->description ?? $articleContent->sub_headline }}">
 <meta name="twitter:image"
   content="{{ env('APP_URL') . asset(str_replace('public', 'storage',($article->image_banner_url))) }}">
 

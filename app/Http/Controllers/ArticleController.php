@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\ArticleMetaContent;
 use App\Models\ArticleTranslation;
 use App\Models\Category;
 use App\Models\FeaturedArticle;
@@ -49,6 +50,7 @@ class ArticleController extends Controller
 
     $article = Article::where('id', $articleTranslation->article_id)->first();
     $articleContent = ArticleTranslation::where('article_id', $articleTranslation->article_id)->where('locale', $locale)->first();
+    $articleMetaContent = ArticleMetaContent::where('article_id', $articleTranslation->article_id)->where('locale', $locale)->first();
 
     // if article is not published
     // or article publish date is in future
@@ -63,7 +65,7 @@ class ArticleController extends Controller
       abort(404);
     }
 
-    return view('pages.blog-news.details', compact('article', 'articleContent', 'user'));
+    return view('pages.blog-news.details', compact('article', 'articleContent', 'articleMetaContent', 'user'));
   }
 
   public function list_articles_by_category()
@@ -296,6 +298,13 @@ class ArticleController extends Controller
       $articleTranslation = $article->articleTranslation->where('article_id', $id)->first();
     }
 
+    // meta fields
+    $articleMetaContent = $article->articleMetaContent->where('locale', $locale)->where('article_id', $id)->first();
+
+    if (!$articleMetaContent) {
+      $articleMetaContent = $article->articleMetaContent->where('article_id', $id)->first();
+    }
+
     $categories = Category::all();
 
     return view('pages.dashboard.articles.edit', [
@@ -303,7 +312,8 @@ class ArticleController extends Controller
       'categories' => $categories,
       'article' => $article,
       'featured' => $article->featuredArticle,
-      'articleTranslation' => $articleTranslation
+      'articleTranslation' => $articleTranslation,
+      'articleMetaContent' => $articleMetaContent
     ]);
   }
 
@@ -318,6 +328,13 @@ class ArticleController extends Controller
     $category_id = $request->category;
     $image = $request->file('image_banner');
     $locale = App::getLocale();
+
+    // meta fields
+    $meta_title = $request->meta_title;
+    $meta_description = $request->meta_description;
+    $meta_keywords = $request->meta_keywords;
+
+    // dd($request->all());
 
     // validate all input for update
     $request->validate([
@@ -360,7 +377,10 @@ class ArticleController extends Controller
         $publish_date,
         $publish_status,
         $category_id,
-        $content
+        $content,
+        $meta_title,
+        $meta_description,
+        $meta_keywords
       );
 
       if (!$article['status']) {

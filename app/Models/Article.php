@@ -39,6 +39,11 @@ class Article extends Model
     return $this->hasMany(ArticleTranslation::class, 'article_id', 'id');
   }
 
+  public function articleMetaContent()
+  {
+    return $this->hasMany(ArticleMetaContent::class, 'article_id', 'id');
+  }
+
   public function featuredArticle()
   {
     return $this->hasOne(FeaturedArticle::class, 'article_id', 'id');
@@ -96,7 +101,7 @@ class Article extends Model
     }
   }
 
-  public function updateArticle($id, $locale, $title, $sub_headline, $image, $published_at, $is_published, $category_id, $content)
+  public function updateArticle($id, $locale, $title, $sub_headline, $image, $published_at, $is_published, $category_id, $content, $meta_title, $meta_description, $meta_keywords)
   {
     DB::beginTransaction();
 
@@ -137,6 +142,28 @@ class Article extends Model
           'title' => $title,
           'sub_headline' => $sub_headline,
           'content' => $content
+        ]);
+      }
+
+      // find meta content
+      $metaContent = $article->articleMetaContent->where('locale', $locale)->where('article_id', $id)->first();
+
+      if (!$metaContent) {
+        // insert new meta content
+        $metaContentModel = new ArticleMetaContent();
+        $metaContent = $metaContentModel->insertArticleMetaContent(
+          $article->id,
+          $locale,
+          $meta_title,
+          $meta_description,
+          $meta_keywords
+        );
+      } else {
+        // update meta content
+        $metaContent->update([
+          'title' => $meta_title,
+          'description' => $meta_description,
+          'keywords' => $meta_keywords
         ]);
       }
 

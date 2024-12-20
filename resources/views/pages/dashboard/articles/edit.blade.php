@@ -166,6 +166,61 @@
         </div>
       </div>
 
+      {{-- SEO Fields --}}
+      <div class="row mt-lg-5 pt-lg-5">
+
+        {{-- Heading --}}
+        <div class="col-8 col-lg-12 mb-3">
+          <h2 class="fw-bold font-outfit">
+            SEO Fields <em class="h6">(Optional)</em>
+          </h2>
+        </div>
+
+        {{-- Meta Title --}}
+        <div class="col-8 col-lg-8 mb-3">
+          <label for="inputMetaTitle" class="form-label">
+            Meta Title
+          </label>
+          <input name="meta_title" type="text" class="form-control" id="inputMetaTitle"
+            placeholder="ex: Making Sustainable Water"
+            value="{{ old('meta_title') ?? $articleMetaContent->title ?? "" }}">
+          <span class="text-danger">
+            @error('meta_title')
+            {{ $message }}
+            @enderror
+          </span>
+        </div>
+
+        {{-- Meta Description --}}
+        <div class="col-8 col-lg-8 mb-3">
+          <label for="inputMetaDescription" class="form-label">
+            Meta Description
+          </label>
+          <textarea name="meta_description" class="form-control" id="inputMetaDescription" rows="3"
+            placeholder="ex: Making Sustainable Water for Our Planet is Our Goal for the Future">{{ old('meta_description') ?? $articleMetaContent->description ?? '' }}</textarea>
+          <span class="text-danger">
+            @error('meta_description')
+            {{ $message }}
+            @enderror
+          </span>
+        </div>
+
+        {{-- Meta Keywords --}}
+        <div class="col-8 col-lg-8 mb-3">
+          <label for="inputMetaKeywords" class="form-label">
+            Meta Keywords
+          </label>
+          <input name="meta_keywords" type="text" class="form-control" id="inputMetaKeywords"
+            placeholder="ex: Sustainable Water, Water, Water Resources"
+            value="{{ old('meta_keywords') ?? $articleMetaContent->keywords ?? "" }}">
+          <span class="text-danger">
+            @error('meta_keywords')
+            {{ $message }}
+            @enderror
+          </span>
+        </div>
+      </div>
+
       <button type="submit" class="btn btn-primary">
         Submit
       </button>
@@ -189,4 +244,10 @@
   }
 </script>
 <script src="{{ asset('js/dashboard/ckeditor.js') }}" type="module"></script>
+<script>
+  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+  const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+  console.log(tooltipList)
+</script>
 @endsection
